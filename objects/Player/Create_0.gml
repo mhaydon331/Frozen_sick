@@ -1,6 +1,6 @@
 /// @description create stats for player
 
-image_index = armor_black;
+image_index = armor_white;
 can_move = true;
 selected = false;
 can_jump_Time = 30;
