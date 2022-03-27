@@ -22,7 +22,11 @@ jumpY = 0;
 // jump doors
 on_door = false;
 targetEnter = noone;
+msg = ""
 
 //ulgor cabin
 on_footsteps = false;
 investigate_footsteps = false;
+
+//Tulgis Cabin
+on_knock_T = false;

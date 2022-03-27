@@ -56,7 +56,7 @@ if (selected){
 	}	
 }
 
-// move between rooms - Cabin
+// move between rooms - Cabins
 
 on_door = collision_point(x,y,obj_door_U_cabin,true,true);
 
@@ -65,3 +65,5 @@ on_footsteps = collision_point(x,y,Obj_footsteps,true,true);
 if(!on_footsteps){
 	investigate_footsteps = false;
 }
+
+on_knock_T = collision_point(x,y,Obj_knock_Tulgi,true,true);
