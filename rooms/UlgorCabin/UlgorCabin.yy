@@ -29,6 +29,7 @@
             {"propertyId":{"name":"targetEnter","path":"objects/obj_door_U_cabin/obj_door_U_cabin.yy",},"objectId":{"name":"obj_door_U_cabin","path":"objects/obj_door_U_cabin/obj_door_U_cabin.yy",},"value":"town_U_door_1","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
             {"propertyId":{"name":"pos_y","path":"objects/obj_door_U_cabin/obj_door_U_cabin.yy",},"objectId":{"name":"obj_door_U_cabin","path":"objects/obj_door_U_cabin/obj_door_U_cabin.yy",},"value":"210","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
           ],"isDnd":false,"objectId":{"name":"obj_door_U_cabin","path":"objects/obj_door_U_cabin/obj_door_U_cabin.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":70.0,"y":420.0,"resourceVersion":"1.0","name":"cabin_U_door_1","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"Obj_footsteps","path":"objects/Obj_footsteps/Obj_footsteps.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":140.0,"y":420.0,"resourceVersion":"1.0","name":"inst_6AA869B3","tags":[],"resourceType":"GMRInstance",},
       ],"visible":false,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":70,"gridY":70,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],"resourceVersion":"1.0","name":"blocks","tags":[],"resourceType":"GMRInstanceLayer",},
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"Player","path":"objects/Player/Player.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":140.0,"y":350.0,"resourceVersion":"1.0","name":"inst_228CC40","tags":[],"resourceType":"GMRInstance",},
@@ -46,6 +47,7 @@
     {"name":"cabin_U_door_0","path":"rooms/UlgorCabin/UlgorCabin.yy",},
     {"name":"cabin_U_door_1","path":"rooms/UlgorCabin/UlgorCabin.yy",},
     {"name":"inst_228CC40","path":"rooms/UlgorCabin/UlgorCabin.yy",},
+    {"name":"inst_6AA869B3","path":"rooms/UlgorCabin/UlgorCabin.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,

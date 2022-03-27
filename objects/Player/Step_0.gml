@@ -59,3 +59,9 @@ if (selected){
 // move between rooms - Cabin
 
 on_door = collision_point(x,y,obj_door_U_cabin,true,true);
+
+//ulgors cabin interactions
+on_footsteps = collision_point(x,y,Obj_footsteps,true,true);
+if(!on_footsteps){
+	investigate_footsteps = false;
+}
