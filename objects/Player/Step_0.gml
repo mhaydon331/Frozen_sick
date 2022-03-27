@@ -56,6 +56,6 @@ if (selected){
 	}	
 }
 
-// move between rooms
+// move between rooms - Cabin
 
 on_door = collision_point(x,y,obj_door_U_cabin,true,true);
