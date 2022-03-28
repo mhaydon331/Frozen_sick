@@ -67,3 +67,11 @@ if(!on_footsteps){
 }
 
 on_knock_T = collision_point(x,y,Obj_knock_Tulgi,true,true);
+
+on_peek_P = collision_point(x,y,Obj_Peek_Pelcs,true,true);
+if (Pelcs_seen){
+	Pelcs_seen_enemies = true;
+	if (x != Pelcs_seenx || y != Pelcs_seeny){
+		Pelcs_seen = false;
+	}
+}

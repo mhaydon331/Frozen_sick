@@ -1,6 +1,7 @@
 /// @description create stats for player
 
 image_index = armor_white;
+depth = -999999;
 can_move = true;
 selected = false;
 can_jump_Time = 30;
@@ -30,3 +31,11 @@ investigate_footsteps = false;
 
 //Tulgis Cabin
 on_knock_T = false;
+
+//Pelc’s Curiosities
+on_peek_P = false;
+Pelcs_seen = false;
+Pelcs_seenx = x;
+Pelcs_seeny = y;
+Pelcs_seen_enemies = false;
+Pelcs_seen_by_enemies = false;
