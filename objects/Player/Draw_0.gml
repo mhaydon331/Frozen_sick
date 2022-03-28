@@ -30,6 +30,7 @@ if (investigate_footsteps){
 	draw_set_color(c_black);
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
+		draw_set_font(scroll_fnt);
 	draw_text(420,780,"There are some footprints on the ground here. \nThey lead out of the cabin and seem to be from the intruder.\nThey lead to another cabin on the way out of town.\n");
 }
 	
@@ -41,5 +42,6 @@ if (on_knock_T){
 	draw_set_color(c_black);
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
 	draw_text(420,780,"This snow-covered cabin looks peaceful and quiet from the outside.\n Its windows are shuttered, and a steady stream of smoke\n piping out of the chimney indicates a roaring fire within.\n Would You like to knock? (Enter)");
 }
