@@ -70,4 +70,25 @@ if (Pelcs_seen){
 	draw_set_font(scroll_fnt);
 	draw_text(cam_x + 420,cam_y + 150, "Five cloaked elves appear to have ransacked the shop and are searching\nthrough the broken debris on the floor. The furniture, shelves, and front\ncounter have been smashed, and the shop's wares now litter the floor.");
 }
+
+//Buyer's Cabin Draw
 	
+if (on_knock_B){
+	// knock on door
+	draw_sprite_ext(scroll,0,0,630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(420,720,"Would You like to knock? (Enter)");
+}
+if (on_enter_B){
+	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x + 420,cam_y + 800, "The pungent scent of incense fills this yurt, whose walls are painted with glowing arcane\nrunes. A brass brazier burns brightly at the center of the floor, around which are set a\nfew plush chairs, a bed, and a large stone chest. On one of those chairs sits \nan elf reading a book. A small dragon with green butterfly wings is curled in the elf's lap.");
+}

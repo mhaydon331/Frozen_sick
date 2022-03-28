@@ -39,3 +39,9 @@ Pelcs_seenx = x;
 Pelcs_seeny = y;
 Pelcs_seen_enemies = false;
 Pelcs_seen_by_enemies = false;
+
+//Buyer's Yurt
+on_knock_B = false;
+on_enter_B = false;
+Buyer_seenx = x;
+Buyer_seeny = y;
