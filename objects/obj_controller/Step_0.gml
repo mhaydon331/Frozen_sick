@@ -2,14 +2,14 @@
 
 //Logic To Start Game upon Enter Key presses on Title Screen
 if(room == Title && keyboard_check_pressed(vk_enter)){
-	if(global.game_state == states.pregame){
+	if(global.game_state == states.suspend){
 		global.game_state = states.playing;
 		room_goto(MainTown);
 	}
 }
 
 //Pause Menu Logic
-if(keyboard_check_pressed(vk_escape) && global.game_state != states.pregame){
+if(keyboard_check_pressed(vk_escape) && global.game_state != states.suspend){
 	if (global.game_state == states.playing) {
 		global.game_state = states.paused
 		//audio_play_sound(snd_esc, 1, false);
@@ -55,4 +55,20 @@ if (global.game_state == states.paused || global.game_state == states.gameover) 
 	}
 }
 
+//Deal With Sequences by state
 
+//Control Sequences
+switch (sequenceState) {
+	case seqState.playing: {
+		global.game_state = states.suspend;	
+	}
+	case seqState.finished: {
+		if(layer_sequence_exists(curSeqLayer, curSez)){
+			layer_sequence_destroy(curSeq);
+		}
+		global.game_state = states.playing;
+		sequenceState = seqState.notPlaying;
+		curSeq = noone;
+		break;
+	}
+}

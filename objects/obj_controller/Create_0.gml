@@ -1,18 +1,35 @@
-/// @description Game Start - Game Variables
+/// @description Game variables and Enums
 
 //Game Variables
 //TODO: ADD Sound & volume control
 
 
+
+//Game States
 enum states {
-	pregame,
+	suspend, //This state will be used as a suspend state
 	playing,
 	paused,
 	gameover,
 	
 }
+
+//Sequence States
+enum seqState {
+	notPlaying,
+	waiting,
+	playing,
+	finished
+}
+
+//Sequence Variables
+sequenceState = seqState.notPlaying;
+curSeqLayer = noone;
+curSeq = noone;
+
+
 //Setting Initial Game State
-global.game_state = states.pregame;
+global.game_state = states.suspend;
 
 
 //Pause Menu Options
