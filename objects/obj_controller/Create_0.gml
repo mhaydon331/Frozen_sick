@@ -3,6 +3,18 @@
 //Game Variables
 //TODO: ADD Sound & volume control
 
-global.gameStart = false;
-global.gameOver = false;
-global.playerControl = true;
+
+enum states {
+	pregame,
+	playing,
+	paused,
+	gameover,
+	
+}
+//Setting Initial Game State
+global.game_state = states.pregame;
+
+
+//Pause Menu Options
+pauseOption = ["Resume", "Quit", "Restart"];
+pauseOptionSelected = 0;
