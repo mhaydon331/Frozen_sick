@@ -11,11 +11,13 @@ if(room == Title && keyboard_check_pressed(vk_enter)){
 //Pause Menu Logic
 if(keyboard_check_pressed(vk_escape) && global.game_state != states.suspend){
 	if (global.game_state == states.playing) {
-		global.game_state = states.paused
+		global.game_state = states.paused;
+		obj_movement.can_move = false;
 		//audio_play_sound(snd_esc, 1, false);
 	}
 	else {
 		global.game_state = states.playing;
+		obj_movement.can_move = true;
 	}
 }
 
