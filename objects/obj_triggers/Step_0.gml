@@ -1,5 +1,13 @@
 /// @description
 
+//Reactivation of triggers if states = playing
+if(global.game_state == states.playing){
+	//Activate Triggers 
+	instance_activate_object(self);
+	//Reset obj_movement
+	obj_movement.can_move = true;
+	obj_movement.selected = false;	
+}
 
 if (room == MainTown){
 	if (Player.x == x && Player.y == y && first_enter){

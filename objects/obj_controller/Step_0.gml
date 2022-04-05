@@ -76,8 +76,8 @@ switch (sequenceState) {
 }
 
 //Combat Logic 
-//Switch game state to combat
-//Will need to turn on playerTurn when combat is supposed to commence and off when they have jumped
+//TODO: Switch game state to combat
+//TODO: Tturn on playerTurn when combat is supposed to commence and off when they have jumped
 if(global.game_state == states.combat && instance_exists(Player) && global.playerTurn){
 	//Once NPCs are added make a randomized list and hand turn over to the selected object
 	//Deactivate Triggers (will need to be reactivated)
@@ -85,15 +85,9 @@ if(global.game_state == states.combat && instance_exists(Player) && global.playe
 	//Suspend Player Movement except for one jump
 	obj_movement.can_move = false;
 	obj_movement.selected = true;
-	
-	
 }
 
-if(global.game_state == states.playing){
-	//Reactivate Triggers (will need to be reactivated)
-	instance_activate_object(obj_triggers);
-	//Reset obj_movement
-	obj_movement.can_move = true;
-	obj_movement.selected = false;	
-}
+
+
+
 	
