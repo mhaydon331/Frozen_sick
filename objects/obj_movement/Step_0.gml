@@ -1,9 +1,10 @@
 /// @description 
-
-key_left = keyboard_check(vk_left);
-key_right = keyboard_check(vk_right);
-key_up = keyboard_check(vk_up);
-key_down = keyboard_check(vk_down);
+if (global.game_state = states.playing){
+	key_left = keyboard_check(vk_left);
+	key_right = keyboard_check(vk_right);
+	key_up = keyboard_check(vk_up);
+	key_down = keyboard_check(vk_down);
+}
 
 if (key_left && can_move && !collision_point(Player.x-70,Player.y,obj_block,true,true)){
 	Player.x -= 70;

@@ -75,19 +75,19 @@ switch (sequenceState) {
 	}
 }
 
+
 //Combat Logic 
 //TODO: Switch game state to combat
 //TODO: Tturn on playerTurn when combat is supposed to commence and off when they have jumped
 if(global.game_state == states.combat && instance_exists(Player) && global.playerTurn){
 	//Once NPCs are added make a randomized list and hand turn over to the selected object
-	//Deactivate Triggers (will need to be reactivated)
-	instance_deactivate_object(obj_triggers);
 	//Suspend Player Movement except for one jump
 	obj_movement.can_move = false;
 	obj_movement.selected = true;
+	//need a jump counter maybe? 
+	//since can move is also linked in the jump movement rn? 
+	//so that jump allowed is one otherwise jump allowed would be 99999999999?
+	//Or we just control movement in the combat logic and ignore the obj_movement
+	
 }
 
-
-
-
-	
