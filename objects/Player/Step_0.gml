@@ -14,6 +14,7 @@ if(!on_footsteps){
 //Tulgi's CAbin interactions
 on_knock_T = collision_point(x,y,Obj_knock_Tulgi,true,true);
 
+
 // Pelcs Interactions
 on_peek_P = collision_point(x,y,Obj_Peek_Pelcs,true,true);
 if (Pelcs_seen){

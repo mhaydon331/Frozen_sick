@@ -45,7 +45,7 @@ if (on_knock_T){
 	draw_set_font(scroll_fnt);
 	draw_text(420,780,"This snow-covered cabin looks peaceful and quiet from the outside.\n Its windows are shuttered, and a steady stream of smoke\n piping out of the chimney indicates a roaring fire within.\n Would You like to knock? (Enter)");
 }
-
+/*
 // Pelc's Curiosities Draw Commands
 if (on_peek_P){
 	draw_sprite_ext(scroll,0,cam_x,cam_y,1,1,0,c_white,1);
@@ -66,7 +66,7 @@ if (Pelcs_seen){
 	draw_set_font(scroll_fnt);
 	draw_text(cam_x + 420,cam_y + 150, "Five cloaked elves appear to have ransacked the shop and are searching\nthrough the broken debris on the floor. The furniture, shelves, and front\ncounter have been smashed, and the shop's wares now litter the floor.");
 }
-
+*/
 //Buyer's Cabin Draw
 	
 if (on_knock_B){
