@@ -41,7 +41,6 @@ if (on_knock_B){
 	}
 }
 if (vault_knock){
-	show_debug_message("hello");
 	if (keyboard_check_pressed(vk_enter)){
 		if(openvault_1){
 			instance_destroy(triggers_svdoor_1);

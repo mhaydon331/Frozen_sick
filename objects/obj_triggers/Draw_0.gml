@@ -204,9 +204,216 @@ if (on_tent){
 
 // Salsvault
 if (vault_knock) {
+	if (!openvault_16){
+		draw_set_alpha(1);
+		draw_set_color(c_yellow);
+		draw_set_valign(fa_bottom);
+		draw_set_halign(fa_center);
+		draw_text(x+35,bbox_top,"Open Door?\n (Enter)");
+	} else {
+		draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
+		draw_set_alpha(1);
+		draw_set_color(c_black);
+		draw_set_valign(fa_bottom);
+		draw_set_halign(fa_center);
+		draw_set_font(scroll_fnt);
+		draw_text(cam_x + 420,cam_y + 770, "A large red X is painted across the stone door before you.\nViolent banging and the sound of heavy objects being tossed around\nemanates from the chamber beyond. Open the door? (Enter)");
+	}
+}
+//entrance
+if (vault_entrance){
+	//Through wind-whipped snow and biting cold, you notice a half-submerged, dark-blue stone building poking up through the ice. A gray stone door is carved to look like a face with a half-exposed skull. Scribed above the door is the word “SALSVAULT.”
+	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
 	draw_set_alpha(1);
-	draw_set_color(c_yellow);
+	draw_set_color(c_black);
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
-	draw_text(x+35,bbox_top,"Open Door?\n (Enter)");
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x + 420,cam_y + 770, "Through wind-whipped snow and biting cold, you notice a half-submerged, dark-blue\nstone building poking up through the ice. A gray stone door is carved to look like a face\nwith a half-exposed skull. Scribed above the door is the word \"SALSVAULT.\"");
 }
+	
+// S1
+if (vault_1){
+	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x + 420,cam_y + 770, "The heavy stone walls of this room dampen the cold and the howling wind outside.\nAn inscription in what looks like Draconic runes is carved into the east wall.");
+}
+
+//s2
+if (vault_2){
+	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x + 420,cam_y + 770, "Stone tables lie in pieces on the floor at the east end of the room.\nTwo open stone chests stand against the west wall.\nA layer of fine sand coats the inside of the chests and the floor around them.");
+}
+
+//s3
+if (vault_3){
+	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x + 420,cam_y + 810, "Pieces of rusty plate armor are scattered about this chamber amid the rubble of\ndestroyed stone furniture. An anvil built into the floor stands in front of a cold furnace to\nthe southwest. Across the room from the furnace, two humanoid feet stick out from a pile of\nrubble. Two full suits of steel armor stand upright but empty in the middle of the\nchamber, their gleaming surfaces a stark contrast to the rusty pieces lying nearby.");
+}
+
+//s4
+if (vault_4){
+	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x + 420,cam_y + 790, "Smashed stone tables litter the floor in this chamber.\nTwo stone chests built into the floor stand next to each other along the far wall.\nA door to the west is inscribed with words in Draconic runes.\nA large iron lever is flipped into the up position on the wall next to the door.");
+}
+
+//s5
+if (vault_5){
+	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x + 420,cam_y + 770, "A wave of heat hits you from the wall of roiling flame that fills this area,\nshooting down from the ceiling.\nThe only things to be seen in this room are eight chests built into the floor along the far wall.");
+}
+
+//s7
+if (vault_7){
+	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x + 420,cam_y + 760, "Four unmade beds are built into the east and west walls here,\neach with a footlocker tucked beneath it.");
+}
+
+//s8
+if (vault_8){
+	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x + 420,cam_y + 760, "Debris from broken stone furniture covers the floor. The walls here are cracked,\nas if they once supported built-in shelves that have been reduced to rubble.");
+}
+//s9
+if (vault_9){
+	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x + 420,cam_y + 770, "Footlockers are tucked beneath four beds attached to the north and south walls.\nIn the middle of the room, four zombies in tattered robes shuffle around,\nsoftly knocking into one another without caring.");
+}
+
+//s10
+if (vault_10){
+	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x + 420,cam_y + 800, "This room is in immaculate condition, apparently having been cleaned up after\nthe destruction seen elsewhere in the complex. A crisply made bed stands at the\ncenter of the west wall, with small tables off to either side. The room also contains\na stone desk set with a chair, and a chest built into the floor.");
+}
+
+//s11
+if (vault_11){
+	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x + 420,cam_y + 760, "Iron pots, pans, utensils, and frost-covered food covers the floor of this kitchen.\nA steel stove is built into the west wall.");
+}
+
+//s12
+if (vault_12){
+	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x + 420,cam_y + 770, "The remains of broken tables and chairs are piled along the east wall.\nTwo human zombies in tattered robes shuffle aimlessly\naround each other at the center of the chamber.");
+}
+	
+//s13
+if (vault_13){
+	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x + 420,cam_y + 770, "Water ebbs and flows through a large opening along the east wall of this\nruined library. Rotting parchments and waterlogged tomes\nare spread everywhere, fallen from cracked stone shelves.");
+}
+
+//s15
+if (vault_15){
+	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x + 420,cam_y + 770, "Broken blades, cracked hammers, frost-rotted spears, and other\nruined weapons are spread out across the floor,\nfallen from the empty iron weapon racks that line the walls.");
+}
+
+//s16
+if (vault_16){
+	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x + 420,cam_y + 790, "As you open the door to this debris-filled room, a humanoid creature\nmade of pieces of stitched-together flesh charges toward you.\nThe monster's body is covered in wounds, and broken pieces of bone stick\nthrough its skin at odd angles.");
+}
+	
+if (vault_17){
+	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x + 420,cam_y + 800, "Six long stone tables are set with steel and glass laboratory equipment in this chamber,\nwhose walls are lined with shelves holding all manner of strange\nknickknacks and tools. An armed humanoid with white skin and red eyes\nmoves from table to table, adjusting bubbling mixtures and carefully adding reagents.");
+}
+if (vault_18){
+	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x + 420,cam_y + 800, "A cold wind howls through the collapsed east wall of this huge chamber, whose\nfar side is completely submerged under frigid seawater. A dense bed of kelp grows\nup from the submerged floor, obscuring any sight of what lies below.\nBroken glass and the remains of shattered tables cover the\nfloor in the dry section of the room.");
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
