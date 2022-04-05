@@ -7,19 +7,21 @@
 
 //Game States
 enum states {
-	suspend, //This state will be used as a suspend state
+	suspend, //This state will be used as a total suspend state
 	playing,
 	paused,
 	gameover,
-	
+	combat,
 }
+
+global.playerTurn = false;
 
 //Sequence States
 enum seqState {
 	notPlaying,
 	waiting,
 	playing,
-	finished
+	finished,
 }
 
 //Sequence Variables

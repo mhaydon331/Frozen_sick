@@ -1,5 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description Draw 
 
 //Pause & GameOver Logic
 	cam = view_camera[0];
@@ -7,10 +6,6 @@
 	cam_h = camera_get_view_height(cam);
 
 if(global.game_state == states.paused || global.game_state == states.gameover){
-	//if(room == rm_level_1){
-	//	cam_w = room_width;
-	//	cam_h = room_height;
-	//}
 	draw_set_font(scroll_fnt);
 	draw_set_color(c_red);
 	draw_set_halign(fa_left);
