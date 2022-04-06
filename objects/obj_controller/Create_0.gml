@@ -17,10 +17,11 @@ enum states {
 // combat group for getting enemies
 enum combat_group { 
 	ccave_2,
-	ccave_4,
+	ccave_5,
 	svault_3,
 	svault_6,
 	svault_12,
+	svault_14,
 	svault_16,
 	combat_none,
 }

@@ -14,20 +14,20 @@ global.stat_party = {
 		HP : 50,
 		actions :["Spell", "CrossBow", "Sword", "Block"],
 		armor : 18,
-	}
+	},
 	NPC1 : {
 		HP : 50,
 		actions :["Spell", "CrossBow", "Sword", "Block"],
 		armor : 15,
-	}
+	},
 	NPC2 : {
 		HP : 50,
 		actions :["Spell", "CrossBow", "Sword", "Block"],
 		armor : 15,
-	}
+	},
 	NPC3 : {
 		HP : 50,
 		actions :["Spell", "CrossBow", "Sword", "Block"],
 		armor : 15,
-	}
+	},
 }

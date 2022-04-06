@@ -1,10 +1,6 @@
 /// @description
 
 if(global.game_state == states.playing){
-	//Activate Triggers 
-	//Reset obj_movement
-	obj_movement.can_move = true;
-	obj_movement.selected = false;	
 
 	if (room == MainTown){
 		if (Player.x == x && Player.y == y && first_enter){
@@ -125,13 +121,13 @@ if(global.game_state == states.playing){
 		}
 		if (cave_4){
 			if(Player.x != cave_seen_x || Player.y !=  cave_seen_y){
-				global.game_state = states.combat;
 				instance_destroy(triggers_cc_4);
 				instance_destroy(cover_cave_5);
 			}
 		}
 		if (cave_5){
 			if(Player.x != cave_seen_x || Player.y !=  cave_seen_y){
+				global.game_state = states.combat;
 				instance_destroy(triggers_cc_5);
 				instance_destroy(cover_cave_6);
 			}
@@ -395,6 +391,7 @@ if(global.game_state == states.playing){
 		}
 		if (vault_14){
 			if(Player.x != vault_seen_x || Player.y != vault_seen_y){
+				global.game_state = states.combat;
 				instance_destroy(triggers_sv_14);
 			}
 		}if (vault_15){

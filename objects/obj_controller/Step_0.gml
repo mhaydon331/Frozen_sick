@@ -56,9 +56,8 @@ if (global.game_state == states.paused || global.game_state == states.gameover) 
 			}
 	}
 }
-
+/*
 //Deal With Sequences by state
-
 //Control Sequences
 switch (sequenceState) {
 	case seqState.playing: {
@@ -91,3 +90,4 @@ if(global.game_state == states.combat && instance_exists(Player) && global.playe
 	
 }
 
+*/

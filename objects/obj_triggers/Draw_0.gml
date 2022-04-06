@@ -139,7 +139,7 @@ if (cave_2){
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
 	draw_set_font(scroll_fnt);
-	draw_text(cam_x + 420,cam_y + 810, "The slow dripping of water from the ceiling flows to a pool in the southwest corner of this\ncavern. A large wooden bucket with a lid sits near the edge of the pool.\nA dwarf and two elves bundled in layers of winter clothing are\nthrowing dead bats into the air. Two giant blue-skinned frogs leap\nup to snatch the bats in midair, seemingly as part of some sort of training session.");
+	draw_text(cam_x + 420,cam_y + 810, "The slow dripping of water from the ceiling flows to a pool in the southwest corner of this\ncavern. A large wooden bucket with a lid sits near the edge of the pool.\nA  threeelves bundled in layers of winter clothing are\nthrowing dead bats into the air. Two giant blue-skinned frogs leap\nup to snatch the bats in midair, seemingly as part of some sort of training session.");
 }
 if (cave_3){
 	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
