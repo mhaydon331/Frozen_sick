@@ -12,7 +12,7 @@ if(global.game_state == states.playing){
 		}
 		if (Player.x != x || Player.y != y){
 			elder_approches = false;
-			instance_deactivate_region(x+35,y+35,1,1,true,false);
+			instance_destroy(triggers_palebank)
 		}
 	}
 

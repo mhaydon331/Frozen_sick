@@ -8,7 +8,9 @@ can_jump_Timer = can_jump_Time;
 //30-foot prediction calculations
 // also used for combat movement
 predict_X = 0;
+old_X = 0;
 predict_Y = 0;
+old_Y = 0;
 
 //grid movemnet
 can_jump_spr = spr_red;

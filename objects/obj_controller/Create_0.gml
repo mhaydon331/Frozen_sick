@@ -20,6 +20,7 @@ enum combat_group {
 	ccave_5,
 	svault_3,
 	svault_6,
+	svault_9,
 	svault_12,
 	svault_14,
 	svault_16,
