@@ -3,7 +3,8 @@
 //Game Variables
 //TODO: ADD Sound & volume control
 
-
+//Let's get Random
+randomise();
 
 //Game States
 enum states {
@@ -54,4 +55,6 @@ pauseOption = ["Resume", "Quit", "Restart"];
 pauseOptionSelected = 0;
 
 //Game Dice
-global.dice =2;
+global.dice = noone;
+
+

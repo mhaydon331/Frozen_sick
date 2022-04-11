@@ -4,6 +4,5 @@
 
 if (global.dice != noone  && global.game_state != states.suspend){
 	image_index = global.dice - 1;
-	
 }
 
