@@ -1,3 +1,6 @@
 
 //Create and Destroy Dice 
-global.dice = 2;  //TEST
+image_speed = 0;
+sprite_index = spr_dice;
+image_index = 2;
+global.dice = 9;  //TEST
