@@ -111,6 +111,8 @@ if(global.game_state == states.playing){
 		if (cave_2){
 			if(Player.x != cave_seen_x || Player.y !=  cave_seen_y){
 				global.game_state = states.combat;
+				global.combat_zone = combat_group.ccave_2;
+				obj_controller.initial_combat = true;
 				instance_destroy(triggers_cc_2);
 			}
 		}
@@ -128,6 +130,8 @@ if(global.game_state == states.playing){
 		if (cave_5){
 			if(Player.x != cave_seen_x || Player.y !=  cave_seen_y){
 				global.game_state = states.combat;
+				global.combat_zone = combat_group.ccave_5;
+				obj_controller.initial_combat = true;
 				instance_destroy(triggers_cc_5);
 				instance_destroy(cover_cave_6);
 			}
@@ -332,6 +336,8 @@ if(global.game_state == states.playing){
 		if (vault_3){
 			if(Player.x != vault_seen_x || Player.y != vault_seen_y){
 				global.game_state = states.combat;
+				global.combat_zone = combat_group.svault_3;
+				obj_controller.initial_combat = true;
 				instance_destroy(triggers_sv_3);
 			}
 		}
@@ -348,6 +354,8 @@ if(global.game_state == states.playing){
 		if (vault_6){
 			if(Player.x != vault_seen_x || Player.y != vault_seen_y){
 				global.game_state = states.combat;
+				global.combat_zone = combat_group.svault_6;
+				obj_controller.initial_combat = true;
 				instance_destroy(triggers_sv_6_1);
 				instance_destroy(triggers_sv_6_2);
 			}
@@ -365,6 +373,8 @@ if(global.game_state == states.playing){
 		if (vault_9){
 			if(Player.x != vault_seen_x || Player.y != vault_seen_y){
 				global.game_state = states.combat;
+				global.combat_zone = combat_group.svault_9;
+				obj_controller.initial_combat = true;
 				instance_destroy(triggers_sv_9);
 			}
 		}
@@ -381,6 +391,8 @@ if(global.game_state == states.playing){
 		if (vault_12){
 			if(Player.x != vault_seen_x || Player.y != vault_seen_y){
 				global.game_state = states.combat;
+				global.combat_zone = combat_group.svault_12;
+				obj_controller.initial_combat = true;
 				instance_destroy(triggers_sv_12);
 			}
 		}
@@ -392,6 +404,8 @@ if(global.game_state == states.playing){
 		if (vault_14){
 			if(Player.x != vault_seen_x || Player.y != vault_seen_y){
 				global.game_state = states.combat;
+				global.combat_zone = combat_group.svault_14;
+				obj_controller.initial_combat = true;
 				instance_destroy(triggers_sv_14);
 			}
 		}if (vault_15){
@@ -402,6 +416,8 @@ if(global.game_state == states.playing){
 		if (vault_16){
 			if(Player.x != vault_seen_x || Player.y != vault_seen_y){
 				global.game_state = states.combat;
+				global.combat_zone = combat_group.svault_16;
+				obj_controller.initial_combat = true;
 				instance_destroy(triggers_sv_16);
 			}
 		}

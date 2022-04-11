@@ -91,3 +91,41 @@ if(global.game_state == states.combat && instance_exists(Player) && global.playe
 }
 
 */
+if (global.game_state == states.combat && initial_combat == true){
+	turn_list = ds_list_create();
+	ds_list_add(turn_list,Player,obj_NPC1,obj_NPC2,obj_NPC3);
+	switch (global.combat_zone){
+		case combat_group.ccave_2:
+			ds_list_add(turn_list,ccave_2_elf_1,ccave_2_elf_2,ccave_2_elf_3,ccave_2_frog_1,ccave_2_frog_2);
+			break;
+		case combat_group.ccave_5:
+			ds_list_add(turn_list,Croaker);
+			break;
+		case combat_group.svault_3:
+			ds_list_add(turn_list,svault_armor_1,svault_armor_2);
+			break;
+		case combat_group.svault_6:
+			ds_list_add(turn_list,svault_6_zombie_1,svault_6_zombie_2,svault_6_zombie_3);
+			break;
+		case combat_group.svault_9:
+			ds_list_add(turn_list,svault_9_zombie_1,svault_9_zombie_2);
+			break;
+		case combat_group.svault_12:
+			ds_list_add(turn_list,svault_12_zombie_1,svault_12_zombie_2);
+			break;
+		case combat_group.svault_14:
+			ds_list_add(turn_list,svault_14_zombie_1,svault_14_zombie_2,svault_14_zombie_3);
+			break;
+		case combat_group.svault_16:
+			ds_list_add(turn_list,svault_16_golum);
+			break;
+		default:
+			global.game_state = states.playing;
+			break;
+	};
+	ds_list_shuffle(turn_list);
+	//show_debug_message(string(ds_list_size(turn_list)));
+	initial_combat = false;
+}
+
+

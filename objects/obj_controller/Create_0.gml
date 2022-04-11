@@ -16,6 +16,7 @@ enum states {
 
 // combat group for getting enemies
 enum combat_group { 
+	combat_none,// no combat
 	ccave_2,
 	ccave_5,
 	svault_3,
@@ -24,7 +25,6 @@ enum combat_group {
 	svault_12,
 	svault_14,
 	svault_16,
-	combat_none,
 }
 
 global.combat_zone = combat_group.combat_none;
@@ -46,6 +46,7 @@ curSeq = noone;
 
 //Setting Initial Game State
 global.game_state = states.suspend;
+initial_combat = false;
 
 
 //Pause Menu Options
