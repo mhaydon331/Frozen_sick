@@ -52,3 +52,6 @@ initial_combat = false;
 //Pause Menu Options
 pauseOption = ["Resume", "Quit", "Restart"];
 pauseOptionSelected = 0;
+
+//Game Dice
+global.dice =2;
