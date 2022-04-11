@@ -128,7 +128,4 @@ if (global.game_state == states.combat && initial_combat == true){
 	initial_combat = false;
 }
 
-//Dice Roller for Combat
-
-
 
