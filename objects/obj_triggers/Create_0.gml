@@ -1,6 +1,7 @@
 /// @description Insert description here
 // You can write your code in this editor
 
+depth = -9999;
 // Main Town
 first_enter = true;
 paleBankEnter = false;

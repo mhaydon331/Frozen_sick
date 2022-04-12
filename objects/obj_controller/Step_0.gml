@@ -124,9 +124,224 @@ if (global.game_state == states.combat && initial_combat == true){
 			break;
 	};
 	ds_list_shuffle(turn_list);
-	//show_debug_message(string(ds_list_size(turn_list)));
+	enemy_count = ds_list_size(turn_list) - 4;
 	initial_combat = false;
+	turn_start = true;
+	obj_movement.can_move = false;
 }
+//show_debug_message(string(obj_movement.can_move));
+if (global.game_state == states.combat && initial_combat == false){
+	//show_debug_message(string(object_get_name(ds_list_find_value(turn_list,combat_turn))));
+	if (ds_list_find_value(turn_list,combat_turn) == Player) {
+		person = "Player";
+		player_selected = true;
+		predict_X = mouse_x - mouse_x%70;
+		predict_Y = mouse_y - mouse_y%70;
+		if (abs(predict_X-Player.x) <= jump_max && abs(predict_Y - Player.y) <= jump_max && !collision_point(predict_X,predict_Y,obj_block,true,true) ){
+			can_jump_spr = spr_green;
+			if (mouse_check_button_released(mb_right)){
+				Player.x = predict_X;
+				Player.y = predict_Y;
+				player_selected = false;
+			}
+		}
+		else {
+			can_jump_spr = spr_red;
+		}
+	} else {
+		player_selected = false;
+	}
+	if (turn_start){
+		if (ds_list_find_value(turn_list,combat_turn) == obj_NPC1) {
+			person = "NPC1";
+			if (turn_start){
+				enemy_nearest = instance_nearest(obj_NPC1.x, obj_NPC1.y, obj_enemy);
+				show_debug_message("Nearest_enemy x: "+string(enemy_nearest.x));
+				show_debug_message("Nearest_enemy y: "+string(enemy_nearest.y));
+				obj_NPC1.x = enemy_nearest.x+70;
+				obj_NPC1.y = enemy_nearest.y;
+				enemy_msg = enemy_nearest.enemy_type;
+				action = choose("Spell", "CrossBow", "Sword");
+				show_debug_message(enemy_nearest.enemy_type);
+				show_debug_message(action);
+				turn_start = false;
+				if (action == "Spell"){
+					roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0]));
+					if (roll_to_hit + 4 >= enemy_nearest.armor){
+						damage = irandom(8) + 1;
+						hit = true;
+						enemy_nearest.enemy_HP -= damage;
+					}
+					else{
+						hit = false;
+						damage = 0;
+					}
+				}
+				if (action == "Sword"){
+					roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0]));
+					if (roll_to_hit + 3 >= enemy_nearest.armor){
+						damage = irandom(10) + 1;
+						enemy_nearest.enemy_HP -= damage;
+						hit = true;
+					}
+					else{
+						hit = false;
+						damage = 0;
+					}
+				}
+				if (action == "Crossbow"){
+					roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0]));
+					if (roll_to_hit + 2 >= enemy_nearest.armor){
+						damage = irandom(6) + 1;
+						enemy_nearest.enemy_HP -= damage;
+						hit = true;
+					}
+					else{
+						hit = false;
+						damage = 0;
+					}
+				}
+				if (enemy_nearest.enemy_HP <= 0){
+					instance_destroy(enemy_nearest);
+					enemy_count -= 1;
+				}
+			}
+		} else if (ds_list_find_value(turn_list,combat_turn) == obj_NPC2) {
+			person = "NPC2";
+			if (turn_start){
+				enemy_nearest = instance_nearest(obj_NPC2.x, obj_NPC2.y, obj_enemy);
+				show_debug_message("Nearest_enemy x: "+string(enemy_nearest.x));
+				show_debug_message("Nearest_enemy y: "+string(enemy_nearest.y));
+				obj_NPC2.x = enemy_nearest.x;
+				obj_NPC2.y = enemy_nearest.y+70;
+				enemy_msg = enemy_nearest.enemy_type;
+				action = choose("Spell", "CrossBow", "Sword");
+				show_debug_message(enemy_nearest.enemy_type);
+				show_debug_message(action);
+				turn_start = false;
+				if (action == "Spell"){
+					roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0]));
+					if (roll_to_hit + 4 >= enemy_nearest.armor){
+						damage = irandom(8) + 1;
+						hit = true;
+						enemy_nearest.enemy_HP -= damage;
+					}
+					else{
+						hit = false;
+						damage = 0;
+					}
+				}
+				if (action == "Sword"){
+					roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0]));
+					if (roll_to_hit + 3 >= enemy_nearest.armor){
+						damage = irandom(10) + 1;
+						enemy_nearest.enemy_HP -= damage;
+						hit = true;
+					}
+					else{
+						hit = false;
+						damage = 0;
+					}
+				}
+				if (action == "Crossbow"){
+					roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0]));
+					if (roll_to_hit + 2 >= enemy_nearest.armor){
+						damage = irandom(6) + 1;
+						hit = true;
+						enemy_nearest.enemy_HP -= damage;
+					}
+					else{
+						hit = false;
+						damage = 0;
+					}
+				}
+			}
+			if (enemy_nearest.enemy_HP <= 0){
+				instance_destroy(enemy_nearest);
+				enemy_count -= 1;
+			}
+		
+		} else if (ds_list_find_value(turn_list,combat_turn) == obj_NPC3) {
+			person = "NPC3";
+			enemy_nearest = instance_nearest(obj_NPC3.x, obj_NPC3.y, obj_enemy);
+			show_debug_message("Nearest_enemy x: "+string(enemy_nearest.x));
+			show_debug_message("Nearest_enemy y: "+string(enemy_nearest.y));
+			obj_NPC3.x = enemy_nearest.x;
+			obj_NPC3.y = enemy_nearest.y-70;
+			enemy_msg = enemy_nearest.enemy_type;
+			action = choose("Spell", "CrossBow", "Sword");
+			show_debug_message(enemy_nearest.enemy_type);
+			show_debug_message(action);
+			turn_start = false;
+			if (action == "Spell"){
+				roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0]));
+				if (roll_to_hit + 4 >= enemy_nearest.armor){
+					damage = irandom(8) + 1;
+					hit = true;
+					enemy_nearest.enemy_HP -= damage;
+				}
+				else{
+					hit = false;
+					damage = 0;
+				}
+			}
+			if (action == "Sword"){
+				roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0]));
+				if (roll_to_hit + 3 >= enemy_nearest.armor){
+					damage = irandom(10) + 1;
+					hit = true;
+					enemy_nearest.enemy_HP -= damage;
+				}
+				else{
+					hit = false;
+					damage = 0;
+				}
+			}
+			if (action == "Crossbow"){
+				roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0]));
+				if (roll_to_hit + 2 >= enemy_nearest.armor){
+					damage = irandom(6) + 1;
+					show_debug_message(string(damage));
+					hit = true;
+					enemy_nearest.enemy_HP -= damage;
+				}
+				else{
+					hit = false;
+					damage = 0;
+				}
+			}
+			if (enemy_nearest.enemy_HP <= 0){
+				instance_destroy(enemy_nearest);
+				enemy_count -= 1;
+			}
+		} else {
+			person = string(ds_list_find_value(turn_list,combat_turn));
+			turn_start = false;
+		}
+	}
+	//hit = true;
+	combat_msg = person + " hit " + enemy_msg + " with a " + action + " for " + string(damage);
+	hit = true;
+	if (enemy_count <= 0){
+		global.game_state = states.playing;
+		obj_movement.can_move = true;
+		global.combat_zone = combat_group.combat_none;
+		hit = false;
+		player_selected = false;
+	}
+	if (keyboard_check_pressed(vk_enter)){
+		combat_msg = "";
+		hit = false;
+		damage = 0;
+		person = ""
+		enemy_nearest = noone;
+		enemy_msg = "";
+		turn_start = true;
+		combat_turn = (combat_turn + 1)%ds_list_size(turn_list);
+	}
+		
+}
+
 
 //Dice Roller for Combat
 

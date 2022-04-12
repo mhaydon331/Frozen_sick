@@ -4,6 +4,9 @@
 	cam = view_camera[0];
 	cam_w = camera_get_view_width(cam);
 	cam_h = camera_get_view_height(cam);
+	cam_x = camera_get_view_x(view_camera[0]);
+	cam_y = camera_get_view_y(view_camera[0]);
+
 
 if(global.game_state == states.paused || global.game_state == states.gameover){
 	draw_set_font(scroll_fnt);

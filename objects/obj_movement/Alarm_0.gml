@@ -1,2 +1,4 @@
 /// @description reset can_move
-can_move = true;
+if (global.game_state == states.playing){
+	can_move = true;
+}

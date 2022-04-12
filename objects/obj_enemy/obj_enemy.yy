@@ -29,6 +29,7 @@
     {"varType":1,"value":"0","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"armor","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":4,"value":"[\"Bite\", \"Hit\"]","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"actions","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":4,"value":"combat_group.svault_6","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"combat_group_num","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":2,"value":"\"Zombie\"","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"enemy_type","tags":[],"resourceType":"GMObjectProperty",},
   ],
   "overriddenProperties": [],
   "parent": {

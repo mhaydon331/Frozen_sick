@@ -58,7 +58,7 @@ if (mouse_check_button(mb_left) && can_move){
 	}
 }
 
-if (selected){
+if (selected && can_move){
 	can_jump_Timer--;
 	if (can_jump_Timer <= 0){
 		predict_X = mouse_x - mouse_x%70;
@@ -104,6 +104,7 @@ if (selected){
 						obj_NPC3.y = Player.y + 70;
 					}
 				}
+				show_debug_message("Dice Roll: " + string(rollDice()));
 				can_jump_Timer = can_jump_Time;
 			}
 		}
@@ -111,4 +112,8 @@ if (selected){
 			can_jump_spr = spr_red;
 		}
 	}	
+}
+
+if (can_move == false) {
+	selected = false;
 }
