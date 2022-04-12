@@ -1,5 +1,5 @@
 
-function rollDice(){
+function rollDice(x,y){
 	
 	global.dice = irandom_range(1,20); //Sets Dice for obj_dice
 	var dice = obj_dice;
@@ -8,9 +8,9 @@ function rollDice(){
 	//var yPos = camera_get_view_y(cam);
 	//Move Dice on and off camera if combat
 	if(global.game_state == states.combat){
-		dice.depth = -10000;
-		dice.x = Player.x-300;
-		dice.y = Player.y+50;		
+		dice.depth = -1000000000;
+		dice.x = x + 20;
+		dice.y = y + 100;		
 	}
 	else{
 		dice.x = room_width+200;
