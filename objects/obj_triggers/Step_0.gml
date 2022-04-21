@@ -94,6 +94,7 @@ if(global.game_state == states.playing){
 				cave_4 = true;
 				first_enter = false;
 			} else if (trigger_number == 5){
+				obj_town_person.visible = true;
 				cave_5 = true;
 				first_enter = false;
 			} else if (trigger_number == 6){
@@ -136,9 +137,11 @@ if(global.game_state == states.playing){
 				instance_destroy(cover_cave_6);
 			}
 		}
-		if (cave_6){
+		if (cave_6 && instance_exists(triggers_cc_6)){
 			if(Player.x != cave_seen_x || Player.y !=  cave_seen_y){
+				obj_town_person.talk = true;
 				instance_destroy(triggers_cc_6);
+				
 			}
 		}
 	
@@ -162,6 +165,19 @@ if(global.game_state == states.playing){
 			instance_destroy(triggers_syrinlya_1);
 		}
 	}
+	//if(room == BuyerHut){
+	//	if(trigger_number == 1 || trigger_number == 2){
+
+	//		on_knock_B = true;  
+	//		on_enter_B = true;
+
+	//		if (on_knock_B || on_enter_B && instance_exists(triggers_cc_1)){
+	//		if(Player.x != Buyer_seenx || Player.y != Buyer_seeny){
+	//			obj_town_person.talk = true;
+	//			instance_destroy(obj_triggers);
+	//		}
+	//	}
+	//}
 
 	if (room == SalsVault){
 		if (Player.x >= x && Player.x <= x+70*(image_xscale-1) && Player.y >= y && Player.y <= y+70*(image_yscale-1) && first_enter){

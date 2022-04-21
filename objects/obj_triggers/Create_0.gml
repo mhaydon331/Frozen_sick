@@ -45,6 +45,8 @@ Syrinlya_seen_x = x;
 Syrinlya_seen_y = y;
 Syrinlya_enter = false;
 
+
+
 // Salsvault
 vault_entrance = false;
 vault_1 = false;

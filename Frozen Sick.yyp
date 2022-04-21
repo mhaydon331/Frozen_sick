@@ -57,6 +57,7 @@
     {"id":{"name":"armor_white","path":"sprites/armor_white/armor_white.yy",},"order":1,},
     {"id":{"name":"Syrinlya","path":"rooms/Syrinlya/Syrinlya.yy",},"order":8,},
     {"id":{"name":"obj_dice","path":"objects/obj_dice/obj_dice.yy",},"order":25,},
+    {"id":{"name":"obj_buyer","path":"objects/obj_buyer/obj_buyer.yy",},"order":26,},
     {"id":{"name":"armor_black","path":"sprites/armor_black/armor_black.yy",},"order":0,},
     {"id":{"name":"mage_black","path":"sprites/mage_black/mage_black.yy",},"order":6,},
     {"id":{"name":"Player","path":"objects/Player/Player.yy",},"order":0,},
