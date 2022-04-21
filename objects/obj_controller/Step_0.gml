@@ -521,10 +521,23 @@ if (global.game_state == states.combat && initial_combat == false){
 	hit = true;
 	if (enemy_count <= 0){
 		global.game_state = states.playing;
-		obj_movement.can_move = true;
-		global.combat_zone = combat_group.combat_none;
-		hit = false;
-		player_selected = false;
+        obj_movement.can_move = true;
+        global.combat_zone = combat_group.combat_none;
+        player_selected = false;
+        enemy_nearest_dist = 100000;
+        display_choice = false;
+        combat_msg = "";
+        hit = false;
+        damage = 0;
+        person = ""
+        enemy_nearest = noone;
+        enemy_msg = "";
+        turn_start = true;
+        combat_turn = (combat_turn + 1)%ds_list_size(turn_list);
+        can_left = true;
+        can_right = true;
+        can_above = true;
+        can_below = true;
 		/*
 		show_debug_message("Player HP: "+string(Player.HP));
 		show_debug_message("NPC1   HP: "+string(obj_NPC1.HP));
@@ -554,6 +567,7 @@ if (global.game_state == states.combat && initial_combat == false){
 
 
 //Dice Roller for Combat
+
 
 
 
