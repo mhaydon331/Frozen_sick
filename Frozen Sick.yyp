@@ -5,6 +5,7 @@
     {"id":{"name":"Tulgi_cabin","path":"sprites/Tulgi_cabin/Tulgi_cabin.yy",},"order":19,},
     {"id":{"name":"BoatNarration","path":"sounds/BoatNarration/BoatNarration.yy",},"order":0,},
     {"id":{"name":"spr_logo","path":"sprites/spr_logo/spr_logo.yy",},"order":22,},
+    {"id":{"name":"npc_elf","path":"sprites/npc_elf/npc_elf.yy",},"order":40,},
     {"id":{"name":"UlgorCabin","path":"rooms/UlgorCabin/UlgorCabin.yy",},"order":1,},
     {"id":{"name":"obj_NPC1","path":"objects/obj_NPC1/obj_NPC1.yy",},"order":21,},
     {"id":{"name":"Obj_footsteps","path":"objects/Obj_footsteps/Obj_footsteps.yy",},"order":5,},

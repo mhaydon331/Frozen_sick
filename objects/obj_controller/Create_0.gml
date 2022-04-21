@@ -67,6 +67,15 @@ predict_X = 0;
 old_X = 0;
 predict_Y = 0;
 old_Y = 0;
+enemy_nearest_x = 100000;
+enemy_nearest_y = 100000;
+enemy_nearest_dist = 100000;
+place_to_move_x = 0;
+place_to_move_y = 0;
+can_left = true;
+can_right = true;
+can_above = true;
+can_below = true;
 
 //grid movemnet
 can_jump_spr = spr_red;
@@ -82,6 +91,7 @@ combat_msg = "";
 person = "";
 enemy_msg = "";
 
+display_choice = false;
 enemy_count = 0;
 
 

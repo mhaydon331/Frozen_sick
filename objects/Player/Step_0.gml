@@ -4,5 +4,7 @@
 // move between rooms - Cabins
 
 on_door = collision_point(x,y,obj_door_U_cabin,true,true);
+armor = 18;
+HP = 50;
 
 //show_debug_message("Num_controllers: " + string(instance_number(obj_controller)));

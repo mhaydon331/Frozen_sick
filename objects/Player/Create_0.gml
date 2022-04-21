@@ -3,6 +3,7 @@
 image_index = armor_white;
 depth = -999999;
 
+name = "Player"
 // jump doors
 on_door = false;
 targetEnter = noone;

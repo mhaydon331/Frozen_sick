@@ -1,5 +1,8 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "npc_elf",
+    "path": "sprites/npc_elf/npc_elf.yy",
+  },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
