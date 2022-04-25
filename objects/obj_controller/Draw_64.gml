@@ -12,8 +12,6 @@ if(global.game_state == states.paused || global.game_state == states.gameover){
 	draw_set_font(scroll_fnt);
 	draw_set_color(c_red);
 	draw_set_halign(fa_left);
-	if (global.game_state == states.paused) draw_text(cam_w-100, 20, "PAUSE");	
-	if (global.game_state == states.gameover) draw_text(cam_w-150, 20, "GAME OVER");
 	draw_set_font(fnt_messages);
 	draw_set_color(c_purple);
 	draw_set_alpha(.5);
@@ -26,7 +24,8 @@ if(global.game_state == states.paused || global.game_state == states.gameover){
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
 	draw_set_font(scroll_fnt);
-	
+	if (global.game_state == states.paused) draw_text(420, 320, "PAUSE");	
+	if (global.game_state == states.gameover)draw_text(420, 320, "GAME OVER");
 	for(var i = 0; i < array_length(pauseOption); i++){
 		var _print = "";
 		if (global.game_state == states.gameover && i = 0) continue;
