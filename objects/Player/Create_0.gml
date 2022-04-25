@@ -7,7 +7,11 @@ name = "Player"
 // jump doors
 on_door = false;
 targetEnter = noone;
+boat_Ride = false;
 msg = ""
 
 HP = 50;
 armor = 18;
+
+no_display = false;
+has_cure = false;

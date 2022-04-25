@@ -50,12 +50,14 @@ curSeq = noone;
 global.game_state = states.suspend;
 initial_combat = false;
 combat_turn = 0;
+win_loss = "";
+first_start = true;
 
 
 //Pause Menu Options
 pauseOption = ["Resume", "Quit", "Restart"];
 pauseOptionSelected = 0;
-
+//Gameover Options
 //Game Dice
 global.dice = noone;
 
@@ -76,6 +78,10 @@ can_left = true;
 can_right = true;
 can_above = true;
 can_below = true;
+ranged = false;
+display_choice = false;
+enemy_selection = false;
+player_choice = false;
 
 //grid movemnet
 can_jump_spr = spr_red;

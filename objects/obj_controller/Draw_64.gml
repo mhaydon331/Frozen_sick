@@ -20,6 +20,12 @@ if(global.game_state == states.paused || global.game_state == states.gameover){
 	draw_rectangle(0,0, cam_w, cam_h, false);
 	draw_set_alpha(1);
 	draw_set_color(make_color_rgb(50, 205, 50));
+	draw_sprite_ext(scroll_end,0,0,0,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
 	
 	for(var i = 0; i < array_length(pauseOption); i++){
 		var _print = "";

@@ -1,11 +1,13 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-depth = -9999;
+depth = -999999999999;
 // Main Town
 first_enter = true;
 paleBankEnter = false;
 elder_approches = false;
+elder_approches_2 = false;
+
 //ulgor cabin
 on_footsteps = false;
 investigate_footsteps = false;
@@ -13,6 +15,7 @@ investigate_footsteps = false;
 //Tulgis Cabin
 on_knock_T = false;
 on_enter_T = false;
+on_enter_T_2 = false;
 
 //Pelc’s Curiosities
 on_peek_P = false;
@@ -87,3 +90,5 @@ openvault_18 = false;
 vault_knock = false;
 vault_seen_x = x;
 vault_seen_y = y;
+cure_obtained = false;
+openvault_18_chest = false;

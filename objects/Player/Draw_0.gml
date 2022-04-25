@@ -7,7 +7,7 @@ cam_y = camera_get_view_y(view_camera[0])
 
 
 //move between rooms player alert
-if (on_door){
+if (on_door && !no_display){
 	draw_set_alpha(1);
 	draw_set_color(c_yellow);
 	draw_set_valign(fa_bottom);

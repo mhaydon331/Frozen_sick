@@ -1,18 +1,32 @@
 /// @description
 
 if(global.game_state == states.playing){
+	if (obj_controller.first_start) {
+		if (keyboard_check_pressed(vk_enter)){
+			obj_controller.first_start = false;
+		}
+	}
 
 	if (room == MainTown){
-		if (Player.x == x && Player.y == y && first_enter){
+		if (Player.x == x && Player.y == y && first_enter && !obj_controller.first_start){
 			paleBankEnter = true;
 			//change later
-			alarm[0] = 1*room_speed;
+			alarm[0] = 10*room_speed;
 			obj_movement.can_move = false;
 			first_enter = false;
 		}
-		if (Player.x != x || Player.y != y){
+		show_debug_message("seen x:" + string(vault_seen_x) + "   seen y:" + string(vault_seen_y));
+		if (Player.x != x || Player.y != y && elder_approches){
 			elder_approches = false;
-			instance_destroy(triggers_palebank)
+			elder_approches_2 = true;
+			vault_seen_x = Player.x;
+			vault_seen_y = Player.y;
+		}
+		if (elder_approches_2){
+			if (Player.x != vault_seen_x || Player.y  != vault_seen_y){
+				elder_approches_2 = false;
+				instance_destroy(triggers_palebank);
+			}
 		}
 	}
 
@@ -40,6 +54,14 @@ if(global.game_state == states.playing){
 		}
 		if(on_enter_T){
 			if(Player.x != x || Player.y != y){
+				on_enter_T_2 = true;
+				on_enter_T = false;
+				vault_seen_x = Player.x;
+				vault_seen_y = Player.y;
+			}
+		}
+		if (on_enter_T_2) {
+			if (Player.x != vault_seen_x || Player.y  != vault_seen_y){
 				instance_destroy(trigger_Tulgi_1);
 			}
 		}
@@ -75,6 +97,7 @@ if(global.game_state == states.playing){
 		if (on_enter_B){
 			if (Player.x != x || Player.y != y){
 				instance_deactivate_object(obj_triggers);
+				obj_buyer.talk = true;
 			}
 		}
 	}
@@ -156,6 +179,7 @@ if(global.game_state == states.playing){
 		}
 		if(Player.x != Syrinlya_seen_x || Player.y !=  Syrinlya_seen_y){
 			Syrinlya_enter = false;
+			instance_destroy(triggers_syrinlya_1);
 		}
 		if (Player.x == x && Player.y == y) {
 			trigger_number = 0;
@@ -289,6 +313,8 @@ if(global.game_state == states.playing){
 			} else if (trigger_number == 118){
 				openvault_18 = true;
 				vault_knock = true;
+			} else if (trigger_number == 1181){
+				openvault_18_chest = true;
 			}
 			vault_seen_x = Player.x;
 			vault_seen_y = Player.y;
@@ -440,6 +466,7 @@ if(global.game_state == states.playing){
 		if (vault_17){
 			if(Player.x != vault_seen_x || Player.y != vault_seen_y){
 				instance_destroy(triggers_sv_17);
+				obj_vault_ghost.talk = true;
 			}
 		}
 		if (vault_18){
@@ -447,5 +474,18 @@ if(global.game_state == states.playing){
 				instance_destroy(triggers_sv_18);
 			}
 		}
+		if (openvault_18_chest){
+			if (keyboard_check_pressed(vk_enter)){
+				Player.has_cure = true;
+				openvault_18_chest = false;
+				cure_obtained = true;
+			}
+		}
+		if (cure_obtained){
+			if(Player.x != vault_seen_x || Player.y != vault_seen_y){
+				instance_destroy(triggers_sv_18_chest);
+			}
+		}
+				
 	}
 }

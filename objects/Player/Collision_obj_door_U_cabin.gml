@@ -7,6 +7,11 @@ if (on_door) {
 		//x = other.targetEnter.pos_x;
 		//y = other.targetEnter.pos_y;
 		targetEnter = other.targetEnter;
+		if (other.targetRoom == Syrinlya && room == MainTown){
+			boat_Ride = true;
+			show_debug_message("did i go?");
+			show_debug_message("Boat Ride:" )
+		}
 		room_goto(other.targetRoom);
 	}
 }

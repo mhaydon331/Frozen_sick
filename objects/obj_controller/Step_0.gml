@@ -27,6 +27,7 @@ if (global.game_state == states.paused || global.game_state == states.gameover) 
 		//if(keyUp || keyDown) audio_play_sound(snd_menu, 1, false);
 	pauseOptionSelected += (keyDown - keyUp);
 	//Makes The Wrap Around faster when the resume option is taken away on game over
+	obj_movement.can_move = false;
 	if(pauseOptionSelected >= array_length(pauseOption) && global.game_state == states.paused) pauseOptionSelected = 0;
 	else if(pauseOptionSelected >= array_length(pauseOption) && global.game_state == states.gameover) pauseOptionSelected = 1;
 
@@ -45,6 +46,7 @@ if (global.game_state == states.paused || global.game_state == states.gameover) 
 		switch(pauseOptionSelected){
 			case 0:
 				global.game_state = states.playing;
+				obj_movement.can_move = true;
 				break;
 			case 1:
 				game_end();
@@ -89,7 +91,6 @@ if(global.game_state == states.combat && instance_exists(Player) && global.playe
 	//Or we just control movement in the combat logic and ignore the obj_movement
 	
 }
-
 */
 if (global.game_state == states.combat && initial_combat == true){
 	turn_list = ds_list_create();
@@ -151,21 +152,32 @@ if (global.game_state == states.combat && initial_combat == false){
 			player_selected = true;
 			predict_X = mouse_x - mouse_x%70;
 			predict_Y = mouse_y - mouse_y%70;
-			if (abs(predict_X-Player.x) <= jump_max && abs(predict_Y - Player.y) <= jump_max && !collision_point(predict_X,predict_Y,obj_block,true,true) ){
-				can_jump_spr = spr_green;
-				if (mouse_check_button_released(mb_right)){
-					Player.x = predict_X;
-					Player.y = predict_Y;
-					player_selected = false;
-					turn_start = false;
+			can_move_there = true;
+			show_debug_message(predict_X);
+			show_debug_message(predict_Y);
+			show_debug_message("Player x: " +string(Player.x));
+			show_debug_message("Player y: " +string(Player.y));
+			for (var i = 0; i < ds_list_size(turn_list); i++){ 
+				if(predict_X == turn_list[|i].x && predict_Y == turn_list[|i].y && turn_list[|i] != Player){
+					can_move_there = false;
+					can_jump_spr = spr_red;
+				} else if (can_move_there && abs(predict_X-Player.x) <= jump_max && abs(predict_Y - Player.y) <= jump_max && !collision_point(predict_X,predict_Y,obj_block,true,true) ){
+					can_jump_spr = spr_green;
+					if (mouse_check_button_released(mb_right)){
+						Player.x = predict_X;
+						Player.y = predict_Y;
+						player_selected = false;
+						turn_start = false;
+						player_choice = true;
+					}
+					if (mouse_check_button_released(mb_left)){
+						player_selected = false;
+						turn_start = false;
+						player_choice = true;
+					}
+				} else {
+					can_jump_spr = spr_red;
 				}
-				if (mouse_check_button_released(mb_left)){
-					player_selected = false;
-					turn_start = false;
-				}
-			}
-			else {
-				can_jump_spr = spr_red;
 			}
 		} else if (ds_list_find_value(turn_list,combat_turn) == obj_NPC1) {
 			person = "NPC1";
@@ -367,8 +379,6 @@ if (global.game_state == states.combat && initial_combat == false){
 			turn_start = false;
 			player_selected = false;
 			person = ds_list_find_value(turn_list,combat_turn);
-			show_debug_message(person);
-			show_debug_message(person.x);
 			for (var i = 0; i < ds_list_size(party_list); i++){
 				show_debug_message(party_list[|i]);
 				if (sqrt(sqr(party_list[|i].x - person.x)+sqr(party_list[|i].y - person.y)) < enemy_nearest_dist){
@@ -377,12 +387,13 @@ if (global.game_state == states.combat && initial_combat == false){
 					enemy_nearest = party_list[|i]
 				}
 			}
-			show_debug_message(person.x);
-			show_debug_message(person.y);
 			//Left
-			place_to_move_x = enemy_nearest.x-70;
-			place_to_move_y = enemy_nearest.y;
+			place_to_move_x = person.x;
+			place_to_move_y = person.y;
 			for (var i = 0; i < ds_list_size(turn_list); i++){
+				if (turn_list[|i] == person){
+					continue;
+				}
 				show_debug_message(string(turn_list[|i])+ "x: "+ string(turn_list[|i].x)+"  y: " + string(turn_list[|i].y));
 				if (turn_list[|i].x == enemy_nearest.x-70 && turn_list[|i].y = enemy_nearest.y){
 					show_debug_message("Left conflict");
@@ -398,32 +409,28 @@ if (global.game_state == states.combat && initial_combat == false){
 					can_below = false;
 				}
 			}
-			if (can_left){
+			if (can_left && person.enemy_type != "Croaker"){
 				place_to_move_x = enemy_nearest.x-70;
 				place_to_move_y = enemy_nearest.y;
-			} else if (can_right){
+			} else if (can_right && person.enemy_type != "Croaker"){
 				place_to_move_x = enemy_nearest.x+70;
 				place_to_move_y = enemy_nearest.y;
-			} else if (can_above){
+			} else if (can_above && person.enemy_type != "Croaker"){
 				place_to_move_x = enemy_nearest.x;
 				place_to_move_y = enemy_nearest.y-70;
-			} else if (can_below){
+			} else if (can_below && person.enemy_type != "Croaker"){
 				place_to_move_x = enemy_nearest.x;
 				place_to_move_y = enemy_nearest.y+70;
 			} else {
 				//need to fix this
-				place_to_move_x = enemy_nearest.x;
-				place_to_move_y = enemy_nearest.y+140;
+				if (person.enemy_type != "Croaker"){
+					place_to_move_x = enemy_nearest.x;
+					place_to_move_y = enemy_nearest.y+140;
+				}
 			}
-			show_debug_message("can left: " + string(can_left));
-			show_debug_message("can right: " + string(can_right));
-			show_debug_message("can above: " + string(can_above));
-			show_debug_message("can below: " + string(can_below));
 			person.x = place_to_move_x;
 			person.y = place_to_move_y;
-			show_debug_message(string(person)+ "x: "+ string(person.x)+"  y: " + string(person.y));
 			action = person.actions[irandom(array_length(person.actions))%array_length(person.actions)];
-			show_debug_message(action);
 			/*
 			if (!place_meeting(enemy_nearest.x-70, enemy_nearest.y,obj_enemy)){
 				show_debug_message("Can Move left");
@@ -508,16 +515,96 @@ if (global.game_state == states.combat && initial_combat == false){
 			person = person.enemy_type;
 		}
 	}
-	show_debug_message(ds_list_size(enemy_list));
 	//player action choice
-	if (ds_list_find_value(turn_list,combat_turn) == Player && turn_start == false) {
+	if (ds_list_find_value(turn_list,combat_turn) == Player && enemy_selection == false && turn_start == false && player_choice == true) {
 		display_choice = true;
 		// 1 = spell 2 = crossbow 3 = sword
+		can_jump_spr = spr_red;
+		var _key = keyboard_lastchar;
+		if (ord(_key) == ord("1")){
+			show_debug_message("I pressed Spell");
+			action = "Spell";
+			roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0])) + 4;
+			damage = irandom(8) + 1;
+			ranged = true;
+			enemy_selection = true;
+			player_choice = false;
+		}
+		if (ord(_key) == ord("2")){
+			action = "Crossbow";
+			roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0])) + 2;
+			damage = irandom(6) + 1;
+			ranged = true;
+			enemy_selection = true;
+			player_choice = false;
+		}
+		if (ord(_key) == ord("3")){
+			action = "Sword";
+			roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0])) + 3;
+			damage = irandom(10) + 1;
+			ranged = false;
+			enemy_selection = true;
+			player_choice = false;
+		}
 		
 		//action = 
 	}
+	if (ds_list_find_value(turn_list,combat_turn) == Player && turn_start == false && enemy_selection == true){
+		predict_X = mouse_x - mouse_x%70;
+		predict_Y = mouse_y - mouse_y%70;
+		can_jump_spr = spr_red;
+		enemy_nearest = noone;
+		for (var i = 0; i < ds_list_size(enemy_list); i++){
+			if (predict_X == enemy_list[|i].x && predict_Y == enemy_list[|i].y){
+				if (abs(predict_X - Player.x) <= 70 && abs(predict_Y - Player.y) <= 70 && !ranged){
+					can_jump_spr = spr_green;
+					enemy_nearest = enemy_list[|i];
+				} else if (!ranged) {
+					can_jump_spr = spr_red;
+					enemy_nearest = noone;
+				} else {
+					can_jump_spr = spr_green;
+					enemy_nearest = enemy_list[|i];
+				}
+			} 
+		}
+		if (mouse_check_button_pressed(mb_left) && enemy_nearest != noone){
+			show_debug_message("Hit me!");
+			if (roll_to_hit >= enemy_nearest.armor){
+				enemy_nearest.enemy_HP -= damage;
+				display_choice = false;
+				enemy_msg = enemy_nearest.enemy_type;
+				enemy_selection = false;
+				hit = true;
+			} else {
+				display_choice = false;
+				enemy_selection = false;
+				damage = 0;
+				enemy_msg = enemy_nearest.enemy_type;
+				hit = false;
+			}
+			if (enemy_nearest.enemy_HP <= 0){
+				index_to_delete = ds_list_find_index(turn_list,enemy_nearest);
+				ds_list_delete(turn_list,index_to_delete);
+				index_to_delete = ds_list_find_index(enemy_list,enemy_nearest);
+				ds_list_delete(enemy_list,index_to_delete);
+				instance_destroy(enemy_nearest);
+				enemy_count -= 1;
+			}
+		}
+	}
+	if (Player.HP <= 0){
+		global.game_state = states.gameover;
+	}
+			
 	//hit = true;
 	combat_msg = person + " hit " + enemy_msg + " with a " + action + " for " + string(damage);
+	if (player_selected){
+		combat_msg = "Please select a place to move or click on the screen to skip movement";
+	}
+	if (display_choice){
+		combat_msg = "";
+	}
 	hit = true;
 	if (enemy_count <= 0){
 		global.game_state = states.playing;

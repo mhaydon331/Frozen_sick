@@ -8,6 +8,15 @@ cam_y = camera_get_view_y(view_camera[0]);
 /*
 enter new text here
 */
+if (obj_controller.first_start){
+	draw_sprite_ext(scroll_end,0,cam_x,cam_y,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x +420, cam_y + 600, "Game Instructions: \n Movement is done via arrow keys\n You can also move by left clicking on the Player and right clicking to move\nDifferent Narations will pop up and moving will cause them to dissapear\n Combat happens after entering an area and moving once\n The rest will be explained when you enter combat\n\n\n Welcome adventurer\n Your Goal is to help the villagers of PaleBank as they face an unknown sickness\n That they have named the Frozen Sick \n\n\n Press Enter to exit this scroll");
+}
 
 if (paleBankEnter){
 	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
@@ -28,6 +37,16 @@ if (elder_approches){
 	draw_set_font(scroll_fnt);
 	draw_text(cam_x + 420,cam_y + 800, "A gruff voice speaks softly to the right of you. \"Thank you for coming to attend Urgon's\nservice.\" You turn and meet the gaze of Elro Aldataur, a weathered elf, retired ranger, and\ntheleader of the village. \"I'm sorry to speak of dark tidings under such circumstances,\nbut I believe that Palebank Village might be in danger, and I'm hoping you can help us.\"");
 }
+if (elder_approches_2){
+	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x + 420,cam_y + 800, "He tells you Urgon's Cabin is in the northwest corner of the village and \n urges you to begin investigating there.\n He also informs you that He came back from Syrinlya to the east recently as well.");
+}
+
 	
 	
 //ulgors cabin alerts player 
@@ -46,7 +65,7 @@ if (investigate_footsteps){
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
 		draw_set_font(scroll_fnt);
-	draw_text(420,780,"There are some footprints on the ground here. \nThey lead out of the cabin and seem to be from the intruder.\nThey lead to another cabin on the way out of town.\n");
+	draw_text(420,780,"There are some footprints on the ground here. \nThey lead out of the cabin and seem to be from the intruder.\nThey lead to another cabin on the way north out of town.\n");
 }
 
 // Tulgis Cabin Commands
@@ -68,6 +87,15 @@ if (on_enter_T){
 	draw_set_font(scroll_fnt);
 	draw_text(420,810,"The heat in this small cabin hits like a hammer blow. A table set with neatly stacked dishes,\ntools, and utensils stands at the center of the room. The smell of a simmering soup comes from\na pot hanging inside a roaring fireplace. Another fire burns in an iron brazier at the opposite\nend of the room, filling the cabin with a smoky haze.Shivering at the end of a bed near the\nbrazier is a dwarf wrapped in blankets. Bulging blue veins streak her face, neck, and hands.");
 }
+if (on_enter_T_2){
+	draw_sprite_ext(scroll,0,0,630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(420,770,"As you approach her she explains to you that she got sick after she stole some vials from\nPelcs Curiousities with her sister in search of valuable items.\n She pleads for you to help her and her sister and tells you that Palcs is on the south end of town.");
+}
 
 // Pelc's Curiosities Draw Commands
 if (on_peek_P){
@@ -87,7 +115,7 @@ if (Pelcs_seen){
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
 	draw_set_font(scroll_fnt);
-	draw_text(cam_x + 420,cam_y + 150, "Five cloaked elves appear to have ransacked the shop and are searching\nthrough the broken debris on the floor. The furniture, shelves, and front\ncounter have been smashed, and the shop's wares now litter the floor.");
+	draw_text(cam_x + 420,cam_y + 150, "Bandits to have ransacked the shop, searching through the entire shop\nas if in search of something. The furniture, shelves, and front\ncounter have been smashed, and the shop's wares now litter the floor.\nThe local Bandit hideout is know to be a cave west of town.");
 }
 if (verlas_quarters){
 	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
@@ -139,7 +167,7 @@ if (cave_2){
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
 	draw_set_font(scroll_fnt);
-	draw_text(cam_x + 420,cam_y + 810, "The slow dripping of water from the ceiling flows to a pool in the southwest corner of this\ncavern. A large wooden bucket with a lid sits near the edge of the pool.\nA  threeelves bundled in layers of winter clothing are\nthrowing dead bats into the air. Two giant blue-skinned frogs leap\nup to snatch the bats in midair, seemingly as part of some sort of training session.");
+	draw_text(cam_x + 420,cam_y + 810, "The slow dripping of water from the ceiling flows to a pool in the southwest corner of this\ncavern. A large wooden bucket with a lid sits near the edge of the pool.\nA group of three elves bundled in layers of winter clothing are\nthrowing dead bats into the air. Two giant blue-skinned frogs leap\nup to snatch the bats in midair, seemingly as part of some sort of training session.");
 }
 if (cave_3){
 	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
@@ -182,7 +210,7 @@ if (cave_6){
 }
 
 //Syrinlya
-if (Syrinlya_enter){
+if (Syrinlya_enter && !Player.no_display){
 	draw_sprite_ext(scroll,0,cam_x,cam_y,1,1,0,c_white,1);
 	draw_set_alpha(1);
 	draw_set_color(c_black);
@@ -404,16 +432,21 @@ if (vault_18){
 	draw_text(cam_x + 420,cam_y + 800, "A cold wind howls through the collapsed east wall of this huge chamber, whose\nfar side is completely submerged under frigid seawater. A dense bed of kelp grows\nup from the submerged floor, obscuring any sight of what lies below.\nBroken glass and the remains of shattered tables cover the\nfloor in the dry section of the room.");
 }
 	
+if (openvault_18_chest){
+	draw_set_alpha(1);
+	draw_set_color(c_yellow);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_text(x+35,bbox_top,"Open Chest?\n (Enter)");
+} 
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+if (cure_obtained){
+	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
+	draw_set_alpha(1);
+	draw_set_color(c_black);
+	draw_set_valign(fa_bottom);
+	draw_set_halign(fa_center);
+	draw_set_font(scroll_fnt);
+	draw_text(cam_x + 420,cam_y + 750, "You have obtained the cure. Take it back to the buyer!");
+}

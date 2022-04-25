@@ -104,7 +104,6 @@ if (selected && can_move){
 						obj_NPC3.y = Player.y + 70;
 					}
 				}
-				show_debug_message("Dice Roll: " + string(rollDice()));
 				can_jump_Timer = can_jump_Time;
 			}
 		}

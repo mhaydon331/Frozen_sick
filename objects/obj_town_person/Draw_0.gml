@@ -11,9 +11,7 @@ if (talk){
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
 	draw_set_font(scroll_fnt);
-	draw_text(cam_x + 420,cam_y + 800, "You should seek Syrinlya where I hear there is a wise Buyer\n who may have a cure to this accursed affliction.\nI suffer from a terrible disease that is coursing through my veins as well.\nI must be off in quick haste not to suffer the same fate as the accursed villagers of Palebank Village.\nThere is no time to waste!");
+	draw_text(cam_x + 420,cam_y + 800, "You should seek Syrinlya where I hear there is a wise Buyer who may have a cure\nto this accursed affliction. I suffer from a terrible disease that is \ncoursing through my veins as well. I must be off in quick haste not to suffer the same fate as the\naccursed villagers of Palebank Village. There is no time to waste!");
 	if(alarm[0] == -1) alarm[0] = room_speed * 20;
 }
-
-
 
