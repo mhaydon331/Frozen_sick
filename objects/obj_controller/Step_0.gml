@@ -9,7 +9,7 @@ if(room == Title && keyboard_check_pressed(vk_enter)){
 }
 
 //Pause Menu Logic
-if(keyboard_check_pressed(vk_escape) && global.game_state != states.suspend){
+if(keyboard_check_pressed(vk_escape) && global.game_state != states.suspend && global.game_state != states.combat){
 	if (global.game_state == states.playing) {
 		global.game_state = states.paused;
 		obj_movement.can_move = false;

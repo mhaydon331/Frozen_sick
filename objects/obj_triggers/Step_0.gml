@@ -36,7 +36,7 @@ if(global.game_state == states.playing){
 		}
 		if (investigate_footsteps) {
 			if (Player.x != x || Player.y != y){
-				instance_deactivate_region(x+35,y+35,1,1,true,false);
+				instance_destroy(Ulgor_cabin_trigger);
 			}
 		}
 		
@@ -74,7 +74,7 @@ if(global.game_state == states.playing){
 		if (Pelcs_seen){
 			Pelcs_seen_enemies = true;
 			if (Player.x != x || Player.y != y){
-				instance_deactivate_region(x+35,y+35,1,1,true,false);
+				instance_destroy(Pelcs_trigger_0);
 			}
 		}
 		if (Player.x >= x && Player.x <= x+280 && Player.y >= y && Player.y <= y+140 && trigger_number == 1){

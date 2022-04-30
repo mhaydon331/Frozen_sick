@@ -44,7 +44,7 @@ if (elder_approches_2){
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
 	draw_set_font(scroll_fnt);
-	draw_text(cam_x + 420,cam_y + 800, "He tells you Urgon's Cabin is in the northwest corner of the village and \n urges you to begin investigating there.\n He also informs you that He came back from Syrinlya to the east recently as well.");
+	draw_text(cam_x + 420,cam_y + 800, "He tells you Urgon's Cabin is in the northeast corner of the village and \n urges you to begin investigating there.\n He also informs you that He came back from Syrinlya to the west recently as well.");
 }
 
 	
@@ -94,7 +94,7 @@ if (on_enter_T_2){
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
 	draw_set_font(scroll_fnt);
-	draw_text(420,770,"As you approach her she explains to you that she got sick after she stole some vials from\nPelcs Curiousities with her sister in search of valuable items.\n She pleads for you to help her and her sister and tells you that Palcs is on the south end of town.");
+	draw_text(420,770,"As you approach her she explains to you that she got sick after she stole some vials from\nPelcs Curiousities with her sister in search of valuable items.\n She pleads for you to help her and her sister and tells you that Pelcs is on the south end of town.");
 }
 
 // Pelc's Curiosities Draw Commands
@@ -115,7 +115,7 @@ if (Pelcs_seen){
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
 	draw_set_font(scroll_fnt);
-	draw_text(cam_x + 420,cam_y + 150, "Bandits to have ransacked the shop, searching through the entire shop\nas if in search of something. The furniture, shelves, and front\ncounter have been smashed, and the shop's wares now litter the floor.\nThe local Bandit hideout is know to be a cave west of town.");
+	draw_text(cam_x + 420,cam_y + 150, "Bandits to have ransacked the shop, searching through the entire shop\nas if in search of something. The furniture, shelves, and front\ncounter have been smashed, and the shop's wares now litter the floor.\nThe local Bandit hideout is know to be a cave east of town.");
 }
 if (verlas_quarters){
 	draw_sprite_ext(scroll,0,cam_x,cam_y+630,1,1,0,c_white,1);
@@ -124,7 +124,7 @@ if (verlas_quarters){
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
 	draw_set_font(scroll_fnt);
-	draw_text(cam_x + 420,cam_y + 800, "What appears to be an ice statue of an elf is bundled beneath the blankets\n of a bed along the east wall of the room. A small table loaded with\n dirty teacups and a kettle stands next to the bed.");
+	draw_text(cam_x + 420,cam_y + 800, "What appears to be an ice statue of an elf is bundled beneath the blankets\n of a bed along the north wall of the room. A small table loaded with\n dirty teacups and a kettle stands next to the bed.");
 }
 
 
@@ -268,7 +268,7 @@ if (vault_1){
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
 	draw_set_font(scroll_fnt);
-	draw_text(cam_x + 420,cam_y + 770, "The heavy stone walls of this room dampen the cold and the howling wind outside.\nAn inscription in what looks like Draconic runes is carved into the east wall.");
+	draw_text(cam_x + 420,cam_y + 770, "The heavy stone walls of this room dampen the cold and the howling wind outside.\nAn inscription in what looks like Draconic runes is carved into the south wall.");
 }
 
 //s2
@@ -279,7 +279,7 @@ if (vault_2){
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
 	draw_set_font(scroll_fnt);
-	draw_text(cam_x + 420,cam_y + 770, "Stone tables lie in pieces on the floor at the east end of the room.\nTwo open stone chests stand against the west wall.\nA layer of fine sand coats the inside of the chests and the floor around them.");
+	draw_text(cam_x + 420,cam_y + 770, "Stone tables lie in pieces on the floor at the south end of the room.\nTwo open stone chests stand against the north wall.\nA layer of fine sand coats the inside of the chests and the floor around them.");
 }
 
 //s3
@@ -290,7 +290,7 @@ if (vault_3){
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
 	draw_set_font(scroll_fnt);
-	draw_text(cam_x + 420,cam_y + 810, "Pieces of rusty plate armor are scattered about this chamber amid the rubble of\ndestroyed stone furniture. An anvil built into the floor stands in front of a cold furnace to\nthe southwest. Across the room from the furnace, two humanoid feet stick out from a pile of\nrubble. Two full suits of steel armor stand upright but empty in the middle of the\nchamber, their gleaming surfaces a stark contrast to the rusty pieces lying nearby.");
+	draw_text(cam_x + 420,cam_y + 810, "Pieces of rusty plate armor are scattered about this chamber amid the rubble of\ndestroyed stone furniture. An anvil built into the floor stands in front of a cold furnace to\nthe north. Across the room from the furnace, two humanoid feet stick out from a pile of\nrubble. Two full suits of steel armor stand upright but empty in the middle of the\nchamber, their gleaming surfaces a stark contrast to the rusty pieces lying nearby.");
 }
 
 //s4
@@ -344,7 +344,7 @@ if (vault_9){
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
 	draw_set_font(scroll_fnt);
-	draw_text(cam_x + 420,cam_y + 770, "Footlockers are tucked beneath four beds attached to the north and south walls.\nIn the middle of the room, four zombies in tattered robes shuffle around,\nsoftly knocking into one another without caring.");
+	draw_text(cam_x + 420,cam_y + 770, "Footlockers are tucked beneath four beds attached to the east and west walls.\nIn the middle of the room, four zombies in tattered robes shuffle around,\nsoftly knocking into one another without caring.");
 }
 
 //s10
@@ -377,7 +377,7 @@ if (vault_12){
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
 	draw_set_font(scroll_fnt);
-	draw_text(cam_x + 420,cam_y + 770, "The remains of broken tables and chairs are piled along the east wall.\nTwo human zombies in tattered robes shuffle aimlessly\naround each other at the center of the chamber.");
+	draw_text(cam_x + 420,cam_y + 770, "The remains of broken tables and chairs are piled along the south wall.\nTwo human zombies in tattered robes shuffle aimlessly\naround each other at the center of the chamber.");
 }
 	
 //s13
@@ -388,7 +388,7 @@ if (vault_13){
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
 	draw_set_font(scroll_fnt);
-	draw_text(cam_x + 420,cam_y + 770, "Water ebbs and flows through a large opening along the east wall of this\nruined library. Rotting parchments and waterlogged tomes\nare spread everywhere, fallen from cracked stone shelves.");
+	draw_text(cam_x + 420,cam_y + 770, "Water ebbs and flows through a large opening along the south wall of this\nruined library. Rotting parchments and waterlogged tomes\nare spread everywhere, fallen from cracked stone shelves.");
 }
 
 //s15
@@ -429,7 +429,7 @@ if (vault_18){
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
 	draw_set_font(scroll_fnt);
-	draw_text(cam_x + 420,cam_y + 800, "A cold wind howls through the collapsed east wall of this huge chamber, whose\nfar side is completely submerged under frigid seawater. A dense bed of kelp grows\nup from the submerged floor, obscuring any sight of what lies below.\nBroken glass and the remains of shattered tables cover the\nfloor in the dry section of the room.");
+	draw_text(cam_x + 420,cam_y + 800, "A cold wind howls through the collapsed south wall of this huge chamber, whose\nfar side is completely submerged under frigid seawater. A dense bed of kelp grows\nup from the submerged floor, obscuring any sight of what lies below.\nBroken glass and the remains of shattered tables cover the\nfloor in the dry section of the room.");
 }
 	
 if (openvault_18_chest){
