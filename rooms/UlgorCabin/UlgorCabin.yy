@@ -32,7 +32,7 @@
       ],"visible":false,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":70,"gridY":70,"layers":[],"hierarchyFrozen":false,"effectEnabled":true,"effectType":null,"properties":[],"resourceVersion":"1.0","name":"blocks","tags":[],"resourceType":"GMRInstanceLayer",},
     {"instances":[
         {"properties":[],"isDnd":false,"objectId":{"name":"Player","path":"objects/Player/Player.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":140.0,"y":350.0,"resourceVersion":"1.0","name":"inst_228CC40","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[],"isDnd":false,"objectId":{"name":"obj_triggers","path":"objects/obj_triggers/obj_triggers.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":140.0,"y":420.0,"resourceVersion":"1.0","name":"inst_37989760","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"obj_triggers","path":"objects/obj_triggers/obj_triggers.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":140.0,"y":420.0,"resourceVersion":"1.0","name":"Ulgor_cabin_trigger","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_NPC1","path":"objects/obj_NPC1/obj_NPC1.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":70.0,"y":280.0,"resourceVersion":"1.0","name":"inst_7F2499DF","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_NPC2","path":"objects/obj_NPC2/obj_NPC2.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":70.0,"y":490.0,"resourceVersion":"1.0","name":"inst_686238C4","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"obj_NPC3","path":"objects/obj_NPC3/obj_NPC3.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":70.0,"y":210.0,"resourceVersion":"1.0","name":"inst_16AC3106","tags":[],"resourceType":"GMRInstance",},
@@ -50,7 +50,7 @@
     {"name":"cabin_U_door_0","path":"rooms/UlgorCabin/UlgorCabin.yy",},
     {"name":"cabin_U_door_1","path":"rooms/UlgorCabin/UlgorCabin.yy",},
     {"name":"inst_228CC40","path":"rooms/UlgorCabin/UlgorCabin.yy",},
-    {"name":"inst_37989760","path":"rooms/UlgorCabin/UlgorCabin.yy",},
+    {"name":"Ulgor_cabin_trigger","path":"rooms/UlgorCabin/UlgorCabin.yy",},
     {"name":"inst_7F2499DF","path":"rooms/UlgorCabin/UlgorCabin.yy",},
     {"name":"inst_686238C4","path":"rooms/UlgorCabin/UlgorCabin.yy",},
     {"name":"inst_16AC3106","path":"rooms/UlgorCabin/UlgorCabin.yy",},
