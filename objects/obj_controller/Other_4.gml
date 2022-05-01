@@ -7,6 +7,7 @@
 //Mark Sequences Layer
 if(layer_exists("Cutscenes")){
 	curSeqLayer = "Cutscenes";	
+	
 }
 else{
 	curSeqLayer = "Instances";	

@@ -58,25 +58,27 @@ if (global.game_state == states.paused || global.game_state == states.gameover) 
 			}
 	}
 }
-/*
+
 //Deal With Sequences by state
 //Control Sequences
-switch (sequenceState) {
-	case seqState.playing: {
-		global.game_state = states.suspend;	
-	}
-	case seqState.finished: {
-		if(layer_sequence_exists(curSeqLayer, curSez)){
-			layer_sequence_destroy(curSeq);
-		}
-		global.game_state = states.playing;
-		sequenceState = seqState.notPlaying;
-		curSeq = noone;
-		break;
-	}
-}
+//if(layer_exists(curSeqLayer)){
+//switch (sequenceState) {
+//	case seqState.playing: {
+//		global.game_state = states.suspend;	
+//	}
+//	case seqState.finished: {
+//		if(layer_sequence_exists(curSeqLayer, curSeq)){
+//			layer_sequence_destroy(curSeq);
+//		}
+//		global.game_state = states.playing;
+//		sequenceState = seqState.notPlaying;
+//		curSeq = noone;
+//		break;
+//	}
+//}
+//}
 
-
+/*
 //Combat Logic 
 //TODO: Switch game state to combat
 //TODO: Tturn on playerTurn when combat is supposed to commence and off when they have jumped
@@ -654,6 +656,7 @@ if (global.game_state == states.combat && initial_combat == false){
 
 
 //Dice Roller for Combat
+
 
 
 
