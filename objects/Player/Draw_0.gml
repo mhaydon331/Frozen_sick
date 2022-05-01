@@ -12,5 +12,5 @@ if (on_door && !no_display){
 	draw_set_color(c_yellow);
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
-	draw_text(x+35,bbox_top,msg+"\n (Enter)");
+	draw_text(x+35 + x_messageOffset,bbox_top + y_messageOffset,msg+"\n (Enter)");
 }

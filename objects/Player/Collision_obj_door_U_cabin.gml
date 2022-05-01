@@ -3,6 +3,14 @@
 
 if (on_door) {
 	msg = other.enter_or_leave + " " + other.place+ "?"
+	switch(other.place){
+	  	case "Syrinlya": {x_messageOffset = 45; y_messageOffset = 0; break;}
+		case "CroakersCave":{ x_messageOffset = -10000000000000000000000; y_messageOffset = 0; break;}//Annoying Does not respond
+		case "SalsVault": {x_messageoffset = 0; y_messageOffset = 100; break;}
+		case "BuyersHut": {x_messageOffset = -45; y_messageOffset = 0; break;}
+		default: {x_messageOffset = 0; y_messageOffset = 0; break;}
+			
+	}
 	if (keyboard_check_pressed(vk_enter)) {
 		//x = other.targetEnter.pos_x;
 		//y = other.targetEnter.pos_y;
