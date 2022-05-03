@@ -15,7 +15,7 @@ if (talk){
 	draw_set_font(scroll_fnt);
 	draw_text(cam_x + 420,cam_y + 170, "There is a story I heard from a traveler from beyond the distant lands. Orvo and Urgon found\nthe blue vials in Salsvault, an Aeorian ruin partially submerged in water in a region of Foren where\nthe glacial ice is thin. Orvo believed the ruin is so well preserved because the structure was reinforced\nwith magic, as were many of Aeor's buildings that housed hazardous materials or secret projects.");
 	draw_text(cam_x + 420, cam_y + 810, "Salsvault is two hundred miles northwest of Syrinlya. Ice mephits are drawn to the magic\nof the location. Orvo and Urgon found the ruin after following one of the creatures to what appeared\nto have been an Aeorian lab. Orvo and Urgon explored only three of its chambers before being chased\naway by animated suits of armor. The dwarves didn't know what the vials contained. Orvo sold\nhis treasure to the Buyer. Urgon decided to hang onto his until he returned home to Palebank Village.");
-	if(alarm[0] == -1) alarm[0] = room_speed * 30;
+	if(alarm[0] == -1) alarm[0] = room_speed * 20;
 }
 
 if (Player.has_cure){

@@ -7,6 +7,9 @@ if(on_footsteps){
 	// can add check later for investigation check
 	if (keyboard_check_pressed(vk_enter)) {
 		investigate_footsteps = true;
+		can_move_text = false;
+		alarm[0] = 1*room_speed;
+		obj_movement.can_move = false;
 	}
 }
 
@@ -39,6 +42,8 @@ if (on_knock_B){
 		trigger_number = 1;
 		Buyer_seenx = x;
 		Buyer_seeny = y;
+		alarm[0] = 1*60;
+		can_move_text = false;
 	}
 }
 if (vault_knock){

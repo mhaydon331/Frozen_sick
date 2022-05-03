@@ -17,3 +17,5 @@ no_display = false;
 has_cure = false;
 x_messageOffset = noone;
 y_messageOffset = noone;
+
+healed_once = false;

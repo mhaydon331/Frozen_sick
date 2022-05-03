@@ -1,12 +1,15 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-depth = -999999999999;
+depth = -99999999999999999;
+can_move_text = true;
 // Main Town
 first_enter = true;
 paleBankEnter = false;
 elder_approches = false;
 elder_approches_2 = false;
+town_seen_x = x;
+town_seen_y = y;
 
 //ulgor cabin
 on_footsteps = false;

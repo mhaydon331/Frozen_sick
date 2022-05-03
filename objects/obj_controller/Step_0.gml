@@ -143,22 +143,16 @@ if (global.game_state == states.combat && initial_combat == true){
 	turn_start = true;
 	obj_movement.can_move = false;
 }
-//show_debug_message(string(obj_movement.can_move));
+
 if (global.game_state == states.combat && initial_combat == false){
-	//show_debug_message(string(object_get_name(ds_list_find_value(turn_list,combat_turn))));
 	if (turn_start){
 		if (ds_list_find_value(turn_list,combat_turn) == Player) {
 			//player can jump once
-			//show_debug_message(turn_start);
 			person = "Player";
 			player_selected = true;
 			predict_X = mouse_x - mouse_x%70;
 			predict_Y = mouse_y - mouse_y%70;
 			can_move_there = true;
-			show_debug_message(predict_X);
-			show_debug_message(predict_Y);
-			show_debug_message("Player x: " +string(Player.x));
-			show_debug_message("Player y: " +string(Player.y));
 			for (var i = 0; i < ds_list_size(turn_list); i++){ 
 				if(predict_X == turn_list[|i].x && predict_Y == turn_list[|i].y && turn_list[|i] != Player){
 					can_move_there = false;
@@ -186,20 +180,57 @@ if (global.game_state == states.combat && initial_combat == false){
 			if (turn_start){
 				for (var i = 0; i < ds_list_size(enemy_list); i++){
 					if (sqrt(sqr(enemy_list[|i].x - obj_NPC3.x)+sqr(enemy_list[|i].y - obj_NPC3.y)) < enemy_nearest_dist){
-						//show_debug_message("Lower found");
 						enemy_nearest_dist = sqrt(sqr(enemy_list[|i].x - obj_NPC3.x)+sqr(enemy_list[|i].y - obj_NPC3.y));
-						enemy_nearest = enemy_list[|i]
+						enemy_nearest = enemy_list[|i];
 					}
 				}
-				//enemy_nearest = instance_nearest(obj_NPC1.x, obj_NPC1.y, obj_enemy);
-				//show_debug_message("Nearest_enemy x: "+string(enemy_nearest.x));
-				//show_debug_message("Nearest_enemy y: "+string(enemy_nearest.y));
 				obj_NPC1.x = enemy_nearest.x+70;
 				obj_NPC1.y = enemy_nearest.y;
+				place_to_move_x = obj_NPC1.x;
+				place_to_move_y = obj_NPC1.y;
+				for (var i = 0; i < ds_list_size(turn_list); i++){
+					if (turn_list[|i] == obj_NPC1){
+						continue;
+					}
+					if (turn_list[|i].x == enemy_nearest.x-70 && turn_list[|i].y = enemy_nearest.y){
+						can_left = false;
+					} if (turn_list[|i].x == enemy_nearest.x+70 && turn_list[|i].y = enemy_nearest.y){
+						can_right = false;
+					} if (turn_list[|i].x == enemy_nearest.x && turn_list[|i].y = enemy_nearest.y-70){
+						can_above = false;
+					} if (turn_list[|i].x == enemy_nearest.x && turn_list[|i].y = enemy_nearest.y+70){
+						can_below = false;
+					}
+				}
+				show_debug_message("Can left: " + string(can_left));
+				show_debug_message("Can right: " + string(can_right));
+				show_debug_message("Can above: " + string(can_above));
+				show_debug_message("Can below: " + string(can_below));
+				if (can_right){
+					place_to_move_x = enemy_nearest.x+70;
+					place_to_move_y = enemy_nearest.y;
+				} else if (can_left){
+					place_to_move_x = enemy_nearest.x-70;
+					place_to_move_y = enemy_nearest.y;
+				} else if (can_below){
+					place_to_move_x = enemy_nearest.x;
+					place_to_move_y = enemy_nearest.y+70;
+				} else if (can_above){
+					place_to_move_x = enemy_nearest.x;
+					place_to_move_y = enemy_nearest.y-70;
+				} else {
+					//need to fix this
+					place_to_move_x = enemy_nearest.x;
+					place_to_move_y = enemy_nearest.y+140;
+				}
+				obj_NPC1.x = place_to_move_x;
+				obj_NPC1.y = place_to_move_y;
+				if (enemy_nearest.enemy_type == "Croaker"){
+					obj_NPC1.x = enemy_nearest.x+140;
+					obj_NPC1.y = enemy_nearest.y;
+				}
 				enemy_msg = enemy_nearest.enemy_type;
 				action = choose("Spell", "CrossBow", "Sword");
-				//show_debug_message(enemy_nearest.enemy_type);
-				//show_debug_message(action);
 				turn_start = false;
 				if (action == "Spell"){
 					roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0]));
@@ -251,20 +282,57 @@ if (global.game_state == states.combat && initial_combat == false){
 			if (turn_start){
 				for (var i = 0; i < ds_list_size(enemy_list); i++){
 					if (sqrt(sqr(enemy_list[|i].x - obj_NPC3.x)+sqr(enemy_list[|i].y - obj_NPC3.y)) < enemy_nearest_dist){
-						//show_debug_message("Lower found");
 						enemy_nearest_dist = sqrt(sqr(enemy_list[|i].x - obj_NPC3.x)+sqr(enemy_list[|i].y - obj_NPC3.y));
 						enemy_nearest = enemy_list[|i]
 					}
 				}
-				//enemy_nearest = instance_nearest(obj_NPC2.x, obj_NPC2.y, obj_enemy);
-				//show_debug_message("Nearest_enemy x: "+string(enemy_nearest.x));
-				//show_debug_message("Nearest_enemy y: "+string(enemy_nearest.y));
-				obj_NPC2.x = enemy_nearest.x;
-				obj_NPC2.y = enemy_nearest.y+70;
+				//obj_NPC2.x = enemy_nearest.x;
+				//obj_NPC2.y = enemy_nearest.y+70;
+				place_to_move_x = obj_NPC2.x;
+				place_to_move_y = obj_NPC2.y;
+				for (var i = 0; i < ds_list_size(turn_list); i++){
+					if (turn_list[|i] == obj_NPC2){
+						continue;
+					}
+					if (turn_list[|i].x == enemy_nearest.x-70 && turn_list[|i].y = enemy_nearest.y){
+						can_left = false;
+					} if (turn_list[|i].x == enemy_nearest.x+70 && turn_list[|i].y = enemy_nearest.y){
+						can_right = false;
+					} if (turn_list[|i].x == enemy_nearest.x && turn_list[|i].y = enemy_nearest.y-70){
+						can_above = false;
+					} if (turn_list[|i].x == enemy_nearest.x && turn_list[|i].y = enemy_nearest.y+70){
+						can_below = false;
+					}
+				}
+				show_debug_message("Can left: " + string(can_left));
+				show_debug_message("Can right: " + string(can_right));
+				show_debug_message("Can above: " + string(can_above));
+				show_debug_message("Can below: " + string(can_below));
+				if (can_right){
+					place_to_move_x = enemy_nearest.x+70;
+					place_to_move_y = enemy_nearest.y;
+				} else if (can_left){
+					place_to_move_x = enemy_nearest.x-70;
+					place_to_move_y = enemy_nearest.y;
+				} else if (can_below){
+					place_to_move_x = enemy_nearest.x;
+					place_to_move_y = enemy_nearest.y+70;
+				} else if (can_above){
+					place_to_move_x = enemy_nearest.x;
+					place_to_move_y = enemy_nearest.y-70;
+				} else {
+					//need to fix this
+					place_to_move_x = enemy_nearest.x;
+					place_to_move_y = enemy_nearest.y+140;
+				}
+				obj_NPC2.x = place_to_move_x;
+				obj_NPC2.y = place_to_move_y;
+				if (enemy_nearest.enemy_type == "Croaker"){
+					obj_NPC2.x = enemy_nearest.x;
+					obj_NPC2.y = enemy_nearest.y+140;
+				}
 				enemy_msg = enemy_nearest.enemy_type;
 				action = choose("Spell", "CrossBow", "Sword");
-				//show_debug_message(enemy_nearest.enemy_type);
-				//show_debug_message(action);
 				turn_start = false;
 				if (action == "Spell"){
 					roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0]));
@@ -316,21 +384,60 @@ if (global.game_state == states.combat && initial_combat == false){
 			person = "NPC3";
 			for (var i = 0; i < ds_list_size(enemy_list); i++){
 				if (sqrt(sqr(enemy_list[|i].x - obj_NPC3.x)+sqr(enemy_list[|i].y - obj_NPC3.y)) < enemy_nearest_dist){
-					//show_debug_message("Lower found");
 					enemy_nearest_dist = sqrt(sqr(enemy_list[|i].x - obj_NPC3.x)+sqr(enemy_list[|i].y - obj_NPC3.y));
 					enemy_nearest = enemy_list[|i]
 				}
 			}
-			//show_debug_message("I am the closest enemy:" + string(enemy_nearest));
-			//enemy_nearest = instance_nearest(obj_NPC3.x, obj_NPC3.y, obj_enemy);
-			//show_debug_message("Nearest_enemy x: "+string(enemy_nearest.x));
-			//show_debug_message("Nearest_enemy y: "+string(enemy_nearest.y));
-			obj_NPC3.x = enemy_nearest.x;
-			obj_NPC3.y = enemy_nearest.y-70;
+			//obj_NPC3.x = enemy_nearest.x;
+			//obj_NPC3.y = enemy_nearest.y-70;
+			place_to_move_x = obj_NPC3.x;
+			place_to_move_y = obj_NPC3.y;
+			for (var i = 0; i < ds_list_size(turn_list); i++){
+				if (turn_list[|i] == obj_NPC3){
+					continue;
+				}
+				if (turn_list[|i].x == enemy_nearest.x-70 && turn_list[|i].y = enemy_nearest.y){
+					can_left = false;
+				} if (turn_list[|i].x == enemy_nearest.x+70 && turn_list[|i].y = enemy_nearest.y){
+					can_right = false;
+				} if (turn_list[|i].x == enemy_nearest.x && turn_list[|i].y = enemy_nearest.y-70){
+					can_above = false;
+				} if (turn_list[|i].x == enemy_nearest.x && turn_list[|i].y = enemy_nearest.y+70){
+					can_below = false;
+				}
+			}
+			show_debug_message("Can left: " + string(can_left));
+			show_debug_message("Can right: " + string(can_right));
+			show_debug_message("Can above: " + string(can_above));
+			show_debug_message("Can below: " + string(can_below));
+			if (can_right){
+				place_to_move_x = enemy_nearest.x+70;
+				place_to_move_y = enemy_nearest.y;
+			} else if (can_left){
+				place_to_move_x = enemy_nearest.x-70;
+				place_to_move_y = enemy_nearest.y;
+			} else if (can_below){
+				place_to_move_x = enemy_nearest.x;
+				place_to_move_y = enemy_nearest.y+70;
+			} else if (can_above){
+				place_to_move_x = enemy_nearest.x;
+				place_to_move_y = enemy_nearest.y-70;
+			} else {
+				//need to fix this
+				place_to_move_x = enemy_nearest.x;
+				place_to_move_y = enemy_nearest.y+140;
+			}
+			obj_NPC3.x = place_to_move_x;
+			obj_NPC3.y = place_to_move_y;
+			//obj_NPC3.x = enemy_nearest.x;
+			//obj_NPC3.y = enemy_nearest.y-70;
+			if (enemy_nearest.enemy_type == "Croaker"){
+				obj_NPC3.x = enemy_nearest.x;
+				obj_NPC3.y = enemy_nearest.y-70;
+			}
 			enemy_msg = enemy_nearest.enemy_type;
+			
 			action = choose("Spell", "CrossBow", "Sword");
-			//show_debug_message(enemy_nearest.enemy_type);
-			//show_debug_message(action);
 			turn_start = false;
 			if (action == "Spell"){
 				roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0]));
@@ -360,7 +467,6 @@ if (global.game_state == states.combat && initial_combat == false){
 				roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0]));
 				if (roll_to_hit + 2 >= enemy_nearest.armor){
 					damage = irandom(6) + 1;
-					//show_debug_message(string(damage));
 					hit = true;
 					enemy_nearest.enemy_HP -= damage;
 				}
@@ -382,9 +488,7 @@ if (global.game_state == states.combat && initial_combat == false){
 			player_selected = false;
 			person = ds_list_find_value(turn_list,combat_turn);
 			for (var i = 0; i < ds_list_size(party_list); i++){
-				show_debug_message(party_list[|i]);
 				if (sqrt(sqr(party_list[|i].x - person.x)+sqr(party_list[|i].y - person.y)) < enemy_nearest_dist){
-					//show_debug_message("Lower found");
 					enemy_nearest_dist = sqrt(sqr(party_list[|i].x - person.x)+sqr(party_list[|i].y - person.y));
 					enemy_nearest = party_list[|i]
 				}
@@ -396,18 +500,13 @@ if (global.game_state == states.combat && initial_combat == false){
 				if (turn_list[|i] == person){
 					continue;
 				}
-				show_debug_message(string(turn_list[|i])+ "x: "+ string(turn_list[|i].x)+"  y: " + string(turn_list[|i].y));
 				if (turn_list[|i].x == enemy_nearest.x-70 && turn_list[|i].y = enemy_nearest.y){
-					show_debug_message("Left conflict");
 					can_left = false;
 				} if (turn_list[|i].x == enemy_nearest.x+70 && turn_list[|i].y = enemy_nearest.y){
-					show_debug_message("Right conflict");
 					can_right = false;
 				} if (turn_list[|i].x == enemy_nearest.x && turn_list[|i].y = enemy_nearest.y-70){
-					show_debug_message("Above conflict");
 					can_above = false;
 				} if (turn_list[|i].x == enemy_nearest.x && turn_list[|i].y = enemy_nearest.y+70){
-					show_debug_message("Below conflict");
 					can_below = false;
 				}
 			}
@@ -433,26 +532,6 @@ if (global.game_state == states.combat && initial_combat == false){
 			person.x = place_to_move_x;
 			person.y = place_to_move_y;
 			action = person.actions[irandom(array_length(person.actions))%array_length(person.actions)];
-			/*
-			if (!place_meeting(enemy_nearest.x-70, enemy_nearest.y,obj_enemy)){
-				show_debug_message("Can Move left");
-				person.x = enemy_nearest.x-70;
-				person.y = enemy_nearest.y;
-			} else if (!place_meeting(enemy_nearest.x-70, enemy_nearest.y,obj_enemy)){
-				show_debug_message("Can Move right");
-				person.x = enemy_nearest.x+70;
-				person.y = enemy_nearest.y;
-			} else if (!place_meeting(enemy_nearest.x, enemy_nearest.y-70,obj_enemy)){
-				show_debug_message("Can Move above");
-				person.x = enemy_nearest.x;
-				person.y = enemy_nearest.y-70;
-			} else if (!place_meeting(enemy_nearest.x, enemy_nearest.y+70,obj_enemy)){
-				show_debug_message("Can Move below");
-				person.x = enemy_nearest.x;
-				person.y = enemy_nearest.y+70;
-			}
-			*/
-			
 			if (action == "Sword"){
 				roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0]));
 				if (roll_to_hit + 3 >= enemy_nearest.armor){
@@ -469,7 +548,6 @@ if (global.game_state == states.combat && initial_combat == false){
 				roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0]));
 				if (roll_to_hit+2 >= enemy_nearest.armor){
 					damage = irandom(6) + 1;
-					//show_debug_message(string(damage));
 					hit = true;
 					enemy_nearest.HP -= damage;
 				}
@@ -482,7 +560,6 @@ if (global.game_state == states.combat && initial_combat == false){
 				roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0]));
 				if (roll_to_hit+1 >= enemy_nearest.armor){
 					damage = irandom(8) + 1;
-					//show_debug_message(string(damage));
 					hit = true;
 					enemy_nearest.HP -= damage;
 				}
@@ -496,7 +573,6 @@ if (global.game_state == states.combat && initial_combat == false){
 				damage = irandom(12) + irandom(12);
 				for (i = 0; i < ds_list_size(party_list); i++){
 					if (roll_to_hit+8 >= party_list[|i].armor){
-						//show_debug_message(string(damage));
 						hit = true;
 						party_list[|i].HP -= damage;
 					}
@@ -505,7 +581,6 @@ if (global.game_state == states.combat && initial_combat == false){
 				roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0]));
 				if (roll_to_hit+1 >= enemy_nearest.armor){
 					damage = irandom(10) + 1;
-					//show_debug_message(string(damage));
 					hit = true;
 					enemy_nearest.HP -= damage;
 				}
@@ -515,6 +590,15 @@ if (global.game_state == states.combat && initial_combat == false){
 				}
 			}
 			person = person.enemy_type;
+			if (enemy_nearest == Player){
+				enemy_msg = "Player";
+			} else if (enemy_nearest == obj_NPC1) {
+				enemy_msg = "NPC 1";
+			} else if (enemy_nearest == obj_NPC2) {
+				enemy_msg = "NPC 2";
+			} else if (enemy_nearest == obj_NPC3) {
+				enemy_msg = "NPC 3";
+			} 
 		}
 	}
 	//player action choice
@@ -523,6 +607,7 @@ if (global.game_state == states.combat && initial_combat == false){
 		// 1 = spell 2 = crossbow 3 = sword
 		can_jump_spr = spr_red;
 		var _key = keyboard_lastchar;
+		show_debug_message(_key);
 		if (ord(_key) == ord("1")){
 			show_debug_message("I pressed Spell");
 			action = "Spell";
@@ -534,6 +619,7 @@ if (global.game_state == states.combat && initial_combat == false){
 		}
 		if (ord(_key) == ord("2")){
 			action = "Crossbow";
+			show_debug_message("I pressed Crossbow");
 			roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0])) + 2;
 			damage = irandom(6) + 1;
 			ranged = true;
@@ -542,6 +628,7 @@ if (global.game_state == states.combat && initial_combat == false){
 		}
 		if (ord(_key) == ord("3")){
 			action = "Sword";
+			show_debug_message("I pressed Sword");
 			roll_to_hit = rollDice(camera_get_view_x(view_camera[0]),camera_get_view_y(view_camera[0])) + 3;
 			damage = irandom(10) + 1;
 			ranged = false;
@@ -557,8 +644,13 @@ if (global.game_state == states.combat && initial_combat == false){
 		can_jump_spr = spr_red;
 		enemy_nearest = noone;
 		for (var i = 0; i < ds_list_size(enemy_list); i++){
+			show_debug_message("Predict x: " + string(predict_X) + "   Predict y: " + string(predict_Y));
+			show_debug_message("Enemy: " + string(enemy_list[|i].enemy_type) + "   x: " + string(enemy_list[|i].x) + "   y: " + string(enemy_list[|i].y));
 			if (predict_X == enemy_list[|i].x && predict_Y == enemy_list[|i].y){
 				if (abs(predict_X - Player.x) <= 70 && abs(predict_Y - Player.y) <= 70 && !ranged){
+					can_jump_spr = spr_green;
+					enemy_nearest = enemy_list[|i];
+				} else if (enemy_list[|i].enemy_type == "Croaker" && abs(predict_X - Player.x) <= 140 && abs(predict_Y - Player.y) <= 140 && !ranged){
 					can_jump_spr = spr_green;
 					enemy_nearest = enemy_list[|i];
 				} else if (!ranged) {
@@ -569,6 +661,20 @@ if (global.game_state == states.combat && initial_combat == false){
 					enemy_nearest = enemy_list[|i];
 				}
 			} 
+			if (enemy_list[|i].enemy_type == "Croaker") {
+				if ((predict_X == enemy_list[|i].x && predict_Y == enemy_list[|i].y) || (predict_X == enemy_list[|i].x+70 && predict_Y == enemy_list[|i].y) || (predict_X == enemy_list[|i].x && predict_Y == enemy_list[|i].y+70) || (predict_X == enemy_list[|i].x+70 && predict_Y == enemy_list[|i].y+70)){
+					if (abs(predict_X - Player.x) <= 140 && abs(predict_Y - Player.y) <= 140 && !ranged){
+						can_jump_spr = spr_green;
+						enemy_nearest = enemy_list[|i];
+					} else if (!ranged){
+						can_jump_spr = spr_red;
+						enemy_nearest = noone;
+					} else {
+						can_jump_spr = spr_green;
+						enemy_nearest = enemy_list[|i];
+					}
+				}
+			}
 		}
 		if (mouse_check_button_pressed(mb_left) && enemy_nearest != noone){
 			show_debug_message("Hit me!");
@@ -595,10 +701,9 @@ if (global.game_state == states.combat && initial_combat == false){
 			}
 		}
 	}
-	if (Player.HP <= 0){
+	if (Player.HP <= 0 || obj_NPC1.HP <= 0 || obj_NPC2.HP <= 0 || obj_NPC3.HP <= 0){
 		global.game_state = states.gameover;
 	}
-			
 	//hit = true;
 	combat_msg = person + " hit " + enemy_msg + " with a " + action + " for " + string(damage);
 	if (player_selected){
@@ -627,16 +732,12 @@ if (global.game_state == states.combat && initial_combat == false){
         can_right = true;
         can_above = true;
         can_below = true;
-		/*
-		show_debug_message("Player HP: "+string(Player.HP));
-		show_debug_message("NPC1   HP: "+string(obj_NPC1.HP));
-		show_debug_message("NPC2   HP: "+string(obj_NPC2.HP));
-		show_debug_message("NPC3   HP: "+string(obj_NPC3.HP));
-		*/
+		
 	}
 	if (keyboard_check_pressed(vk_enter)){
 		enemy_nearest_dist = 100000;
 		display_choice = false;
+		player_selected = false;
 		combat_msg = "";
 		hit = false;
 		damage = 0;
@@ -654,7 +755,10 @@ if (global.game_state == states.combat && initial_combat == false){
 		
 }
 
-
+if (global.game_state == states.playing && turn_start){
+	rollDice(-10000,-10000);
+	turn_start = false;
+}
 //Dice Roller for Combat
 
 

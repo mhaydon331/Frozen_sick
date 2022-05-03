@@ -2,32 +2,63 @@
 
 if(global.game_state == states.playing){
 	if (obj_controller.first_start) {
+		show_debug_message("First Start: " +string(obj_controller.first_start));
 		if (keyboard_check_pressed(vk_enter)){
 			obj_controller.first_start = false;
+			can_move_text = false;
+			alarm[0] = 1*room_speed;
 		}
 	}
 
 	if (room == MainTown){
 		if (Player.x == x && Player.y == y && first_enter && !obj_controller.first_start){
+			show_debug_message("MEMEME: " +string(obj_controller.first_start));
 			paleBankEnter = true;
 			//change later
-			alarm[0] = 10*room_speed;
+			//alarm[0] = 10*room_speed;
 			obj_movement.can_move = false;
-			first_enter = false;
+			//first_enter = false;
+			if(keyboard_check_pressed(vk_enter) && can_move_text) {
+				show_debug_message("I hit");
+				elder_approches = true;
+				first_enter = false;
+				can_move_text = false;
+				alarm[0] = 1*room_speed;
+			}
 		}
-		show_debug_message("seen x:" + string(vault_seen_x) + "   seen y:" + string(vault_seen_y));
-		if (Player.x != x || Player.y != y && elder_approches){
-			elder_approches = false;
-			elder_approches_2 = true;
-			vault_seen_x = Player.x;
-			vault_seen_y = Player.y;
+		if (elder_approches == true) {
+			if(keyboard_check_pressed(vk_enter) && can_move_text) {
+				show_debug_message("I hit");
+				elder_approches = false;
+				elder_approches_2 = true;
+				can_move_text = false;
+				alarm[0] = 1*room_speed;
+			}
 		}
-		if (elder_approches_2){
-			if (Player.x != vault_seen_x || Player.y  != vault_seen_y){
+		if (elder_approches_2) {
+			if (keyboard_check_pressed(vk_enter) && can_move_text){
 				elder_approches_2 = false;
+				obj_movement.can_move = true;
 				instance_destroy(triggers_palebank);
 			}
 		}
+		/*
+		show_debug_message("seen x:" + string(town_seen_x) + "   seen y:" + string(town_seen_y));
+		show_debug_message(elder_approches);
+		if (keyboard_check_pressed(vk_enter) && elder_approches){
+			elder_approches = false;
+			elder_approches_2 = true;
+			town_seen_x = Player.x;
+			town_seen_y = Player.y;
+		}
+		if (elder_approches_2 && keyboard_check_pressed(vk_enter)){
+			elder_approches_2 = false;
+			instance_destroy(triggers_palebank);
+			if (Player.x != town_seen_x || Player.y  != town_seen_y){
+				elder_approches_2 = false;
+				instance_destroy(triggers_palebank);
+			}
+		}*/
 	}
 
 	if (room == UlgorCabin){
@@ -35,11 +66,11 @@ if(global.game_state == states.playing){
 			on_footsteps = true;
 		}
 		if (investigate_footsteps) {
-			if (Player.x != x || Player.y != y){
+			if (keyboard_check_pressed(vk_enter) && can_move_text){
+				obj_movement.can_move = true;
 				instance_destroy(Ulgor_cabin_trigger);
 			}
 		}
-		
 	}
 
 	if (room == TulgiCabin){
@@ -51,17 +82,23 @@ if(global.game_state == states.playing){
 		}
 		if (Player.x == x && Player.y == y && trigger_number == 1){
 			on_enter_T = true;
+			can_move_text = false;
+			alarm[0] = 1*room_speed;
+			obj_movement.can_move = false;
+			trigger_number = 2;
 		}
 		if(on_enter_T){
-			if(Player.x != x || Player.y != y){
+			if(keyboard_check_pressed(vk_enter) && can_move_text){
 				on_enter_T_2 = true;
+				obj_movement.can_move = false;
 				on_enter_T = false;
-				vault_seen_x = Player.x;
-				vault_seen_y = Player.y;
+				can_move_text = false;
+				alarm[0] = 1*room_speed;
 			}
 		}
 		if (on_enter_T_2) {
-			if (Player.x != vault_seen_x || Player.y  != vault_seen_y){
+			if (keyboard_check_pressed(vk_enter) && can_move_text){
+				obj_movement.can_move = true;
 				instance_destroy(trigger_Tulgi_1);
 			}
 		}
@@ -73,7 +110,9 @@ if(global.game_state == states.playing){
 		} 
 		if (Pelcs_seen){
 			Pelcs_seen_enemies = true;
-			if (Player.x != x || Player.y != y){
+			obj_movement.can_move = false;
+			if (keyboard_check_pressed(vk_enter) && can_move_text){
+				obj_movement.can_move = true;
 				instance_destroy(Pelcs_trigger_0);
 			}
 		}
@@ -84,7 +123,9 @@ if(global.game_state == states.playing){
 			trigger_number = 0;
 		}
 		if(verlas_quarters){
-			if(Player.x != Pelcs_seenx || Player.y !=  Pelcs_seeny){
+			obj_movement.can_move = false;
+			if (keyboard_check_pressed(vk_enter) && can_move_text){
+				obj_movement.can_move = true;
 				instance_destroy(trigger_pelcs_1);
 			}
 		}
@@ -95,7 +136,8 @@ if(global.game_state == states.playing){
 			on_knock_B = true;
 		} 
 		if (on_enter_B){
-			if (Player.x != x || Player.y != y){
+			obj_movement.can_move = false;
+			if (keyboard_check_pressed(vk_enter) && can_move_text){
 				instance_deactivate_object(obj_triggers);
 				obj_buyer.talk = true;
 			}

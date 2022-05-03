@@ -15,7 +15,7 @@ if (obj_controller.first_start){
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
 	draw_set_font(scroll_fnt);
-	draw_text(cam_x +420, cam_y + 600, "Game Instructions: \n Movement is done via arrow keys\n You can also move by left clicking on the Player and right clicking to move\nDifferent Narations will pop up and moving will cause them to dissapear\n Combat happens after entering an area and moving once\n The rest will be explained when you enter combat\n\n\n Welcome adventurer\n Your Goal is to help the villagers of PaleBank as they face an unknown sickness\n That they have named the Frozen Sick \n\n\n Press Enter to exit this scroll");
+	draw_text(cam_x +420, cam_y + 600, "Game Instructions: \n Movement is done via arrow keys\n You can also move by left clicking on the Player and right clicking to move\nDifferent Narations will pop up and sometimes moving will cause them to dissapear\n If you find yourself unable to move with narration on the screen press the enter button\n Combat happens after entering an area and moving once\n Player movement in combat is done via right clicking on a green space \n If you left click it will skip movement \n The rest will be explained when you enter combat\n\n\n Welcome adventurer\n Your Goal is to help the villagers of PaleBank as they face an unknown sickness\n That they have named the Frozen Sick \n\n\n Press Enter to exit this scroll");
 }
 
 if (paleBankEnter){
@@ -44,7 +44,7 @@ if (elder_approches_2){
 	draw_set_valign(fa_bottom);
 	draw_set_halign(fa_center);
 	draw_set_font(scroll_fnt);
-	draw_text(cam_x + 420,cam_y + 800, "He tells you Urgon's Cabin is in the northeast corner of the village and \n urges you to begin investigating there.\n He also informs you that He came back from Syrinlya to the west recently as well.");
+	draw_text(cam_x + 420,cam_y + 760, "He tells you Urgon's Cabin is in the northeast corner of the village and \n urges you to begin investigating there.\n He also informs you that He came back from Syrinlya to the west recently as well.");
 }
 
 	
